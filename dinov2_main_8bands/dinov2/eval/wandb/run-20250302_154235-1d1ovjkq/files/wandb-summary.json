@@ -1,0 +1,1 @@
+{"_runtime":543.094943516,"auc_score":0.9372,"sensitivity":0.9126,"specificity":0.9617,"running_loss":0.0942,"precision":0.7046,"f1":0.8,"_wandb":{"runtime":543},"_step":5,"_timestamp":1.7409522989588366e+09}

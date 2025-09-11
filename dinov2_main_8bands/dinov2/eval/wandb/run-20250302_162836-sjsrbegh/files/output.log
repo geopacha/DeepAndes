@@ -1,0 +1,227 @@
+Using cache found in /home/guoj5/.cache/torch/hub/facebookresearch_dinov2_main
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py:77: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  pretrained_dict = torch.load(teacher_checkpoint, map_location="cpu")
+dino_head.mlp.0.weight not used
+dino_head.mlp.0.bias not used
+dino_head.mlp.2.weight not used
+dino_head.mlp.2.bias not used
+dino_head.mlp.4.weight not used
+dino_head.mlp.4.bias not used
+dino_head.last_layer.weight_g not used
+dino_head.last_layer.weight_v not used
+ibot_head.mlp.0.weight not used
+ibot_head.mlp.0.bias not used
+ibot_head.mlp.2.weight not used
+ibot_head.mlp.2.bias not used
+ibot_head.mlp.4.weight not used
+ibot_head.mlp.4.bias not used
+ibot_head.last_layer.weight_g not used
+ibot_head.last_layer.weight_v not used
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py:127: DeprecationWarning: Flip is deprecated. Consider using HorizontalFlip, VerticalFlip, RandomRotate90 or D4.
+  A.Flip(),
+ 10%|████████████████                                                                                                                                                | 1/10 [06:54<1:02:12, 414.75s/it]
+[1,   100] running loss: 0.284
+[1,   200] running loss: 0.202
+[1,   300] running loss: 0.124
+[1,   400] running loss: 0.120
+[1,   500] running loss: 0.094
+
+Epoch 1 Train Accuracy : 0.9416
+
+Epoch 1 Validation Accuracy : 0.9647
+Epoch 1 Validation auc_score : 0.8650273224043716
+
+f1 score  0.793002915451895
+Epoch 1 Validation Sensitivity : 0.7431693989071039
+
+Epoch 1 Validation Specificity : 0.9868852459016394
+
+Epoch 1 Validation Precision : 0.85
+
+Epoch 1 Validation F1 : 0.793002915451895
+
+[2,   100] running loss: 0.114
+[2,   200] running loss: 0.102
+[2,   300] running loss: 0.063
+[2,   400] running loss: 0.081
+[2,   500] running loss: 0.091
+
+Epoch 2 Train Accuracy : 0.9679
+
+Epoch 2 Validation Accuracy : 0.9697
+Epoch 2 Validation auc_score : 0.86775956284153
+
+f1 score  0.8168168168168168
+Epoch 2 Validation Sensitivity : 0.7431693989071039
+
+Epoch 2 Validation Specificity : 0.9923497267759562
+
+Epoch 2 Validation Precision : 0.9066666666666666
+
+Epoch 2 Validation F1 : 0.8168168168168168
+
+[3,   100] running loss: 0.086
+[3,   200] running loss: 0.081
+[3,   300] running loss: 0.067
+[3,   400] running loss: 0.054
+[3,   500] running loss: 0.069
+
+Epoch 3 Train Accuracy : 0.9733
+
+Epoch 3 Validation Accuracy : 0.9757
+Epoch 3 Validation auc_score : 0.9202185792349727
+
+f1 score  0.8642659279778393
+Epoch 3 Validation Sensitivity : 0.8524590163934426
+
+Epoch 3 Validation Specificity : 0.9879781420765027
+
+Epoch 3 Validation Precision : 0.8764044943820225
+
+Epoch 3 Validation F1 : 0.8642659279778393
+
+[4,   100] running loss: 0.067
+[4,   200] running loss: 0.069
+[4,   300] running loss: 0.063
+[4,   400] running loss: 0.052
+[4,   500] running loss: 0.070
+
+Epoch 4 Train Accuracy : 0.9774
+
+Epoch 4 Validation Accuracy : 0.9757
+Epoch 4 Validation auc_score : 0.9300546448087432
+
+f1 score  0.8672086720867209
+Epoch 4 Validation Sensitivity : 0.8743169398907104
+
+Epoch 4 Validation Specificity : 0.985792349726776
+
+Epoch 4 Validation Precision : 0.8602150537634409
+
+Epoch 4 Validation F1 : 0.8672086720867209
+
+[5,   100] running loss: 0.051
+[5,   200] running loss: 0.054
+[5,   300] running loss: 0.061
+[5,   400] running loss: 0.046
+[5,   500] running loss: 0.071
+
+Epoch 5 Train Accuracy : 0.9812
+
+Epoch 5 Validation Accuracy : 0.9687
+Epoch 5 Validation auc_score : 0.9040983606557377
+
+f1 score  0.8273972602739726
+Epoch 5 Validation Sensitivity : 0.825136612021858
+
+Epoch 5 Validation Specificity : 0.9830601092896175
+
+Epoch 5 Validation Precision : 0.8296703296703297
+
+Epoch 5 Validation F1 : 0.8273972602739726
+
+[6,   100] running loss: 0.043
+[6,   200] running loss: 0.045
+[6,   300] running loss: 0.058
+[6,   400] running loss: 0.040
+[6,   500] running loss: 0.044
+
+Epoch 6 Train Accuracy : 0.9838
+
+Epoch 6 Validation Accuracy : 0.9722
+Epoch 6 Validation auc_score : 0.883879781420765
+
+f1 score  0.8352941176470589
+Epoch 6 Validation Sensitivity : 0.7759562841530054
+
+Epoch 6 Validation Specificity : 0.9918032786885246
+
+Epoch 6 Validation Precision : 0.9044585987261147
+
+Epoch 6 Validation F1 : 0.8352941176470589
+
+[7,   100] running loss: 0.046
+[7,   200] running loss: 0.061
+[7,   300] running loss: 0.051
+[7,   400] running loss: 0.047
+[7,   500] running loss: 0.054
+
+Epoch 7 Train Accuracy : 0.9825
+
+Epoch 7 Validation Accuracy : 0.9712
+Epoch 7 Validation auc_score : 0.866120218579235
+
+f1 score  0.823170731707317
+Epoch 7 Validation Sensitivity : 0.7377049180327869
+
+Epoch 7 Validation Specificity : 0.994535519125683
+
+Epoch 7 Validation Precision : 0.9310344827586207
+
+Epoch 7 Validation F1 : 0.823170731707317
+
+[8,   100] running loss: 0.045
+[8,   200] running loss: 0.040
+[8,   300] running loss: 0.032
+[8,   400] running loss: 0.053
+[8,   500] running loss: 0.048
+
+Epoch 8 Train Accuracy : 0.9864
+
+Epoch 8 Validation Accuracy : 0.9722
+Epoch 8 Validation auc_score : 0.9010928961748633
+
+f1 score  0.8418079096045198
+Epoch 8 Validation Sensitivity : 0.8142076502732241
+
+Epoch 8 Validation Specificity : 0.9879781420765027
+
+Epoch 8 Validation Precision : 0.8713450292397661
+
+Epoch 8 Validation F1 : 0.8418079096045198
+
+[9,   100] running loss: 0.027
+[9,   200] running loss: 0.033
+[9,   300] running loss: 0.035
+[9,   400] running loss: 0.068
+[9,   500] running loss: 0.040
+
+Epoch 9 Train Accuracy : 0.9872
+
+Epoch 9 Validation Accuracy : 0.9682
+Epoch 9 Validation auc_score : 0.9210382513661203
+
+f1 score  0.8315789473684211
+Epoch 9 Validation Sensitivity : 0.8633879781420765
+
+Epoch 9 Validation Specificity : 0.978688524590164
+
+Epoch 9 Validation Precision : 0.8020304568527918
+
+Epoch 9 Validation F1 : 0.8315789473684211
+
+[10,   100] running loss: 0.037
+[10,   200] running loss: 0.031
+[10,   300] running loss: 0.055
+[10,   400] running loss: 0.041
+[10,   500] running loss: 0.036
+
+Epoch 10 Train Accuracy : 0.9863
+
+Epoch 10 Validation Accuracy : 0.9737
+Epoch 10 Validation auc_score : 0.8896174863387978
+
+f1 score  0.844574780058651
+Epoch 10 Validation Sensitivity : 0.7868852459016393
+
+Epoch 10 Validation Specificity : 0.9923497267759562
+
+Epoch 10 Validation Precision : 0.9113924050632911
+
+Epoch 10 Validation F1 : 0.844574780058651

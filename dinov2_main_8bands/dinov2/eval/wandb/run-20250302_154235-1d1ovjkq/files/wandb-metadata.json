@@ -1,0 +1,55 @@
+{
+  "os":  "Linux-6.8.0-52-generic-x86_64-with-glibc2.35",
+  "python":  "CPython 3.9.21",
+  "startedAt":  "2025-03-02T21:42:35.864026Z",
+  "args":  [
+    "--use_wandb",
+    "--wandb_project",
+    "linear_prob_classic_paper2503",
+    "--wandb_trial",
+    "fold1-3M",
+    "--train_dataset_str",
+    "/mnt/Data/guoj5/DGX_dump/geopacha/junlin_classic/fold_1/train",
+    "--val_dataset_str",
+    "/mnt/Data/guoj5/DGX_dump/geopacha/junlin_classic/fold_1/val",
+    "--cuda",
+    "0",
+    "--output_dir",
+    "/mnt/Data/guoj5/DGX_dump/geopacha/paper_writing/classification/fm3M_fold1/",
+    "--pretrained_weights",
+    "/mnt/Data/guoj5/DGX_dump/geopacha/image_retrieval/teacher_checkpoint.pth"
+  ],
+  "program":  "/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py",
+  "codePath":  "linear_prob_simple_args.py",
+  "email":  "junlinguo1@gmail.com",
+  "root":  "/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval",
+  "host":  "VUSELNX-3BBGRN3.vuds.vanderbilt.edu",
+  "executable":  "/home/guoj5/anaconda3/envs/dinov2_eval/bin/python",
+  "codePathLocal":  "linear_prob_simple_args.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA RTX A5000",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "1006450962432",
+      "used":  "549882793984"
+    }
+  },
+  "memory":  {
+    "total":  "33324826624"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  16
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA RTX A5000",
+      "memoryTotal":  "25757220864",
+      "cudaCores":  8192,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.2"
+}

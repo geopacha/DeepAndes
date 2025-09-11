@@ -1,0 +1,59 @@
+Using cache found in /home/guoj5/.cache/torch/hub/facebookresearch_dinov2_main
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py:77: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  pretrained_dict = torch.load(teacher_checkpoint, map_location="cpu")
+dino_head.mlp.0.weight not used
+dino_head.mlp.0.bias not used
+dino_head.mlp.2.weight not used
+dino_head.mlp.2.bias not used
+dino_head.mlp.4.weight not used
+dino_head.mlp.4.bias not used
+dino_head.last_layer.weight_g not used
+dino_head.last_layer.weight_v not used
+ibot_head.mlp.0.weight not used
+ibot_head.mlp.0.bias not used
+ibot_head.mlp.2.weight not used
+ibot_head.mlp.2.bias not used
+ibot_head.mlp.4.weight not used
+ibot_head.mlp.4.bias not used
+ibot_head.last_layer.weight_g not used
+ibot_head.last_layer.weight_v not used
+/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py:127: DeprecationWarning: Flip is deprecated. Consider using HorizontalFlip, VerticalFlip, RandomRotate90 or D4.
+  A.Flip(),
+  0%|                                                                                                                                                   | 0/10 [08:49<?, ?it/s]
+[1,   100] running loss: 0.217
+[1,   200] running loss: 0.138
+[1,   300] running loss: 0.116
+[1,   400] running loss: 0.098
+[1,   500] running loss: 0.094
+
+Epoch 1 Train Accuracy : 0.9530
+
+Epoch 1 Validation Accuracy : 0.9573
+Epoch 1 Validation auc_score : 0.9371584699453551
+
+f1 score  0.7952380952380952
+Epoch 1 Validation Sensitivity : 0.912568306010929
+
+Epoch 1 Validation Specificity : 0.9617486338797814
+
+Epoch 1 Validation Precision : 0.7046413502109705
+
+Epoch 1 Validation F1 : 0.7952380952380952
+Traceback (most recent call last):
+  File "/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py", line 303, in <module>
+    main(args)
+  File "/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/linear_prob_simple_args.py", line 277, in main
+    torch.save({'epoch': epoch, 'model_state_dict': model.state_dict(),},
+  File "/home/guoj5/anaconda3/envs/dinov2_eval/lib/python3.9/site-packages/torch/serialization.py", line 849, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "/home/guoj5/anaconda3/envs/dinov2_eval/lib/python3.9/site-packages/torch/serialization.py", line 716, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "/home/guoj5/anaconda3/envs/dinov2_eval/lib/python3.9/site-packages/torch/serialization.py", line 687, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name))
+RuntimeError: Parent directory /mnt/Data/guoj5/DGX_dump/geopacha/paper_writing/classification/fm3M_fold1/models does not exist.

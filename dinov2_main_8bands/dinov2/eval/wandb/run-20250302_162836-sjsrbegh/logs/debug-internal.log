@@ -1,0 +1,17 @@
+{"time":"2025-03-02T16:28:36.382371878-06:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-03-02T16:28:36.382413865-06:00","level":"INFO","msg":"created symlink","path":"/mnt/Data/guoj5/DGX_dump/geopacha/dinov2_main_test/dinov2/eval/wandb/run-20250302_162836-sjsrbegh/logs/debug-core.log"}
+{"time":"2025-03-02T16:28:36.489488708-06:00","level":"INFO","msg":"created new stream","id":"sjsrbegh"}
+{"time":"2025-03-02T16:28:36.489513059-06:00","level":"INFO","msg":"stream: started","id":"sjsrbegh"}
+{"time":"2025-03-02T16:28:36.489526546-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T16:28:36.489594626-06:00","level":"INFO","msg":"sender: started","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T16:28:36.489636056-06:00","level":"INFO","msg":"handler: started","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T16:28:36.677201346-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-02T16:28:36.677381261-06:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-03-02T17:42:10.369100669-06:00","level":"INFO","msg":"stream: closing","id":"sjsrbegh"}
+{"time":"2025-03-02T17:42:10.369124598-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-02T17:42:10.385055739-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-02T17:42:10.760923276-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-02T17:42:10.860964412-06:00","level":"INFO","msg":"handler: closed","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T17:42:10.861046729-06:00","level":"INFO","msg":"sender: closed","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T17:42:10.861033559-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"sjsrbegh"}
+{"time":"2025-03-02T17:42:10.861192251-06:00","level":"INFO","msg":"stream: closed","id":"sjsrbegh"}
