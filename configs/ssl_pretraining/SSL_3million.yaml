@@ -1,5 +1,8 @@
 # The config used for the dinov2_ssl_8bands experiment with 3 million images scale 
 
+# Total iterations = epochs x OFFICIAL_EPOCH_LENGTH x batch_size_per_gpu x num_gpus
+# In the experiments, for different scales of the dataset, maintain about/over 40 passes of the dataset scale 
+
 MODEL:
   WEIGHTS: ''
 compute_precision:
@@ -118,3 +121,5 @@ crops:
   local_crops_size: 98 # dividied by patch_size
 evaluation:
   eval_period_iterations: 12500 
+
+
