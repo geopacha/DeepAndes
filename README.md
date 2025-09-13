@@ -4,8 +4,8 @@ Official pytorch implementation for DeepAndes: A Self-Supervised Vision Foundati
 To do:
 - [x] Upload ssl pre-training code (dinov2_ssl_8bands)
   - [x] ssl code, ssl example config, experimental logs
-  - [x] shows where the changes haved been updated in the dinov2_ssl_8bands: vit-model (in_chans=8), customized dataset class
-  - [x] ssl pretraining specific readme
+  - [x] shows where the changes haved been updated in the dinov2_ssl_8bands (docs/adjust_pretrain_for_8bands.md)
+  - [ ] ssl pretraining specific readme
 - [ ] Downstream tasks code
   - [x] classification   
 - [ ] Test the environment and codebase 
