@@ -5,7 +5,7 @@ To do:
 - [x] Upload ssl pre-training code (dinov2_ssl_8bands)
   - [x] ssl code, ssl example config, experimental logs
   - [x] shows where the changes haved been updated in the dinov2_ssl_8bands (docs/adjust_pretrain_for_8bands.md)
-  - [ ] ssl pretraining specific readme
+  - [x] ssl pretraining specific readme
 - [ ] Downstream tasks code
   - [x] classification   
 - [ ] Test the environment and codebase 
