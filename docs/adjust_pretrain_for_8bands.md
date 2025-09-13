@@ -78,5 +78,5 @@ python /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
 ### 3. Example Traning Logs
 Training logs are saved in both image and JSON formats. An example is provided: 
 
-- [Training Metrics Wandb](../configs/ssl_pretraining/training_metrics_wandb.png)  
-- [`training_metrics.json`](../configs/ssl_pretraining/training_metrics.json)
+- [training_metrics (wandb)](../configs/ssl_pretraining/training_metrics_wandb.png)  
+- [`training_metrics (json)](../configs/ssl_pretraining/training_metrics.json)
