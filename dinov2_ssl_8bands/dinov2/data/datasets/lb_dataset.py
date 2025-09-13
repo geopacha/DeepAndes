@@ -61,15 +61,6 @@ class LBDataset(ExtendedVisionDataset):
                 image = image.transpose(1, 2, 0)
             image = self.transforms(image=image)["image"]
 
-
-            # # last check of torch like tensor shape
-            # if image.shape[0] != 8:
-            #    image = image.transpose(2, 0, 1)
-
-            # # convert to tensor
-            # if not torch.is_tensor(image):
-            #    image = torch.tensor(image)
-
             to_tensor = transforms.ToTensor()
             image  = to_tensor(image)
 

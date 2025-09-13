@@ -7,10 +7,6 @@ import logging
 import os
 import sys
 
-# add path to sys.path (docker container path - DGX server)
-sys.path.append('/workspace/geopacha/dinov2_main')
-
-
 from dinov2.logging import setup_logging
 from dinov2.train import get_args_parser as get_train_args_parser
 from dinov2.run.submit import get_args_parser, submit_jobs
@@ -24,8 +20,7 @@ class Trainer(object):
         self.args = args
 
     def __call__(self):
-        # from dinov2.train_ import main as train_main
-        from dinov2.train.train_rs import main as train_main
+        from dinov2.train.train import main as train_main
 
         self._setup_args()
         train_main(self.args)
@@ -53,26 +48,12 @@ def main():
     args_parser = get_args_parser(description=description, parents=parents)
     args = args_parser.parse_args()
 
-    # add for myself debug 520
-    args.ngpus = 8
-    args.output_dir = "/workspace/geopacha/dinov2_main/dinov2/output_test_gpus_new"
-    args.config_file = "/workspace/geopacha/dinov2_main/dinov2/configs/train/vitl16_short_copy.yaml"
-
-
-
-
     setup_logging()
 
     assert os.path.exists(args.config_file), "Configuration file does not exist!"
-
-    # ONLY FOR TEST 
-    # Trainer(args)()
-
-
     submit_jobs(Trainer, args, name="dinov2:train")
     return 0
 
 
 if __name__ == "__main__":
-    # sys.exit(main())
-    main()
+    sys.exit(main())

@@ -7,11 +7,6 @@ import logging
 
 from torchvision import transforms
 
-# from .transforms import (
-#     GaussianBlur,
-#     make_normalize_transform,
-# )
-
 import albumentations as A
 import numpy as np
 import random
@@ -125,18 +120,6 @@ class DataAugmentationDINO(object):
 ########## Customized augmentation class / methods 
 
 # customize 8 channels transform (albumentation-like format )
-##  class RandomBrightness(object):     # original implementation, effect is too random, washed out 
-#     """Random Brightness"""
-
-#     def __init__(self, brightness=0.4):
-#         self.brightness = brightness
-
-#     def __call__(self, sample):
-#         image = sample["image"]
-#         s = np.random.uniform(max(0, 1 - self.brightness), 1 + self.brightness)
-#         image = image * s
-#         return {'image':image}
-    
 class RandomBrightness(object):
     """Random Brightness using blending"""
 
@@ -175,22 +158,6 @@ class ToGray(object):
         return {'image': gray_img.astype(np.uint8)}
 
 
-
-# original (random scale implementation)
-# class RandomContrast(object):
-#     """Random Contrast"""
-
-#     def __init__(self, contrast=0.4):
-#         self.contrast = contrast
-
-#     def __call__(self, sample):
-#         image = sample["image"]
-
-#         s = np.random.uniform(max(0, 1 - self.contrast), 1 + self.contrast)
-#         mean = np.mean(image, axis=(0, 1), keepdims=True)
-
-#         img_contrasted = (image - mean) * s + mean
-#         return {'image':img_contrasted.clip(0, 1)}
     
 class RandomContrast(object):
     """Random Contrast using blending"""
@@ -215,32 +182,6 @@ class RandomContrast(object):
 
         # Clip the values to be in the valid range [0, 255] and return
         return {'image': img_contrasted.clip(0, 255).astype(np.uint8)}
-
-
-# class CustomGaussianBlur(object):
-#     """
-#     Apply Gaussian Blur with a given probability.
-#     The blur is applied to each channel of an 8-channel numpy array image.
-#     """
-
-#     def __init__(self, p=0.5, blur_limit=(7, 7), sigma_limit=(0.1, 2.0)):
-#         self.p = p
-#         self.blur_limit = blur_limit  # This should ideally represent the kernel size
-#         self.sigma_limit = sigma_limit
-
-#     def __call__(self, image):
-#         if random.random() > self.p:
-#             return image  # Return the original image with probability 1 - p
-
-#         # Apply GaussianBlur individually to each channel
-#         # Note: Albumentations' GaussianBlur doesn't directly use sigma_limit for blurring.
-#         # If direct control over sigma is needed, consider an alternative implementation.
-#         blurred_channels = [A.GaussianBlur(blur_limit=self.blur_limit, always_apply=True)(image=image[:, :, i])['image']
-#                             for i in range(image.shape[-1])]
-
-#         # Stack the channels back together
-#         blurred_image = np.stack(blurred_channels, axis=-1)
-#         return blurred_image
 
 
 class CustomGaussianBlur(object):
@@ -383,39 +324,18 @@ class RandomColorJitterAndGrayscale(object):
         # return image (np array)
         return sample['image']
 
-# class Normalize(object):
-#     def __init__(self, bands=8):
-#         self.bands = bands
-
-#     def __call__(self, image):
-#         if isinstance(image, np.ndarray) and image.shape[0] != self.bands:
-#             # convert to pytorch-tensor like shape
-#             image = image.transpose(2, 0, 1)
-
-#         if not torch.is_tensor(image):
-#             image = torch.tensor(image)
-
-#         return image
     
 class Normalize(object):
     def __init__(self, bands=8):
         self.bands = bands
         self.to_tensor = transforms.ToTensor()
-        # self.mean=[0.6881, 0.6265, 0.5738, 0.5223, 0.4898, 0.5746, 0.5612, 0.5603]
-        # self.std = [0.092, 0.1007, 0.1125, 0.1199, 0.1263, 0.1341, 0.1434, 0.1446]
-        
-        
-        # image net 
-        # self.mean = [0.485, 0.456, 0.406, 0.485, 0.456, 0.406, 0.485, 0.456]
-        # self.std = [0.229, 0.224, 0.225, 0.229, 0.224, 0.225, 0.229, 0.224]
-        
-        # self.to_normalize = transforms.Normalize(self.mean, self.std)
+
 
     def __call__(self, image):
 
         if isinstance(image, np.ndarray):
             image = self.to_tensor(image)
-            # image = self.to_normalize(image)
+
 
         return image 
 

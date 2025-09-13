@@ -6,7 +6,7 @@
 # Append system path to the directory containing the 'dinov2' package 
 import sys
 import os 
-sys.path.append('/workspace/geopacha/dinov2_main_test')
+sys.path.append('/path/to/dinov2_ssl_8bands')
 
 import argparse
 import logging
@@ -28,10 +28,8 @@ from dinov2.utils.utils import CosineScheduler
 from dinov2.train.ssl_meta_arch import SSLMetaArch
 
 
-# add
-from dinov2.data.rs_augmentations import DataAugmentationDINO as DataAugmentationDINO_MS # (original)
-# from dinov2.data.rs_faked_augmentations import DataAugmentationDINO as DataAugmentationDINO_MS 
-
+# add custom augmentations and datasets classes
+from dinov2.data.rs_augmentations import DataAugmentationDINO as DataAugmentationDINO_MS 
 from dinov2.data.datasets import NLBDataset
 
 torch.backends.cuda.matmul.allow_tf32 = True  # PyTorch 1.12 sets this to False by default
@@ -54,7 +52,7 @@ def get_args_parser(add_help: bool = True):
     """
     parser = argparse.ArgumentParser("DINOv2 training", add_help=add_help)
     parser.add_argument("--local_rank", type=int, default=0, help="local rank for distributed training/computing") # was added
-    parser.add_argument("--config-file", default="/workspace/geopacha/dinov2_main_test/dinov2/configs/train/vitl16_short_copy.yaml",
+    parser.add_argument("--config-file", default="/path/to/configs/ssl_pretraining/SSL_3million.yaml",
                         metavar="FILE", help="path to config file")
     parser.add_argument(
         "--no-resume",
@@ -76,13 +74,13 @@ For python-based LazyConfig, use "path.key=value".
     parser.add_argument(
         "--output-dir",
         "--output_dir",
-        default="/workspace/geopacha/dinov2_main_test/dinov2/output_test_gpus",  # it was output_train
+        default="/path/to/output_dir",  
         type=str,
         help="Output directory to save logs and checkpoints",
     )
 
     # fix:add
-    parser.add_argument("--ssl-data", type=str, default= "/workspace/geopacha/source_data/data/preprocessing/region1_sliding_window_256", help='Path to ssl data folder')
+    parser.add_argument("--ssl-data", type=str, default= "/path/to/ssl_data/folder", help='Path to ssl data folder')
     parser.add_argument("--wandb-trial", type=str, default= "SSL-vit", help='Name of this wandb run')
     parser.add_argument("--wandb-project", type=str, default= "SSL-vit-project", help='Name of this wandb project')
 
@@ -222,7 +220,7 @@ def do_train(cfg, model, resume=False, main_args=None):
         dtype=inputs_dtype,
     )
 
-    # setup data loader
+    # setup data loader (original code in dinov2 repository)
 
     # dataset = make_dataset(
     #     dataset_str=cfg.train.dataset_path,
@@ -230,11 +228,10 @@ def do_train(cfg, model, resume=False, main_args=None):
     #     target_transform=lambda _: (),
     # )
 
-    ################################### path to the 'Nonlabel'(unlabel) dataset ####################################    
-    # dataset =  NLBDataset(root="../combine/", transforms=data_transform)   #replaced with path in docker 
+
     if main_args is not None:
-        ssl_data = main_args.ssl_data
-    dataset = NLBDataset(root=ssl_data, transforms=data_transform)   #replaced with path in docker 
+        ssl_data = main_args.ssl_data # path to the ssl pretraining dataset folder
+    dataset = NLBDataset(root=ssl_data, transforms=data_transform)   
 
 
     # sampler_type = SamplerType.INFINITE
@@ -323,7 +320,7 @@ def do_train(cfg, model, resume=False, main_args=None):
         metric_logger.update(current_batch_size=current_batch_size)
         metric_logger.update(total_loss=losses_reduced, **loss_dict_reduced)
 
-        # add 
+        # add, for wandb logging
         wandb.log({
             "lr": lr,
             "weight decay": wd,
@@ -369,13 +366,7 @@ def main(args):
 
 if __name__ == "__main__":
     args = get_args_parser(add_help=True).parse_args()
-    # # for debug purporse only  
-    # args.output_dir = '/workspace/geopacha/source_data/output/unsupervised/experiment4_debug_range'
-    # # args.config_file = '/workspace/geopacha/source_data/output/unsupervised/experiment4/config.yaml' # when restart exp
-    # args.config_file = '/workspace/geopacha/dinov2_main_test/dinov2/configs/train/experiment4.yaml'
-    # args.ssl_data = '/workspace/geopacha/source_data/data/preprocessing/imagenet1k_sample_npy'
-    # args.wandb_trial = 'debug-only'
-    wandb.login(key="6e70d1ef3206d5f61cb24015681bf194979a8a33") # optional IN CLI: export WANDB_API_KEY=6e70d1ef3206d5f61cb24015681bf194979a8a33
+    wandb.login(key="your_wandb_api_key_paste_here") # optional IN CLI: export WANDB_API_KEY='your_api_key'
 
     trial = args.wandb_trial
     project = args.wandb_project

@@ -1,8 +1,8 @@
-# This code is customized to see the evaluation of finetuning classification layers on top of frozen patch embeddings
+# This code is customized to see the evaluation of finetuning classification on top of different backbones
 import sys
 
 # replace the following path with the local address of the project folder 
-sys.path.append('/home/guoj5/Documents/RemoteSensing25/JSTARS-2025-02309-major-revision/dinov2_main_test')
+sys.path.append('/path/to/dinov2_ssl_8bands')
 
 
 import numpy as np
@@ -58,7 +58,7 @@ def main(args):
     os.makedirs(os.path.join(output_dir, 'models'), exist_ok=True)
 
     if use_wandb:
-        wandb.login(key="6e70d1ef3206d5f61cb24015681bf194979a8a33") # optional IN CLI: export WANDB_API_KEY=6e70d1ef3206d5f61cb24015681bf194979a8a33
+        wandb.login(key="your_wandb_api_key_paste_here") # optional IN CLI: export 'your_wandb_api_key'
           
         if wandb_project is not None: 
             print(f"WandB logging is enabled with project name: {wandb_project}")
@@ -72,7 +72,7 @@ def main(args):
 
     ############ simple loading ckpt ######################################## 
     if model_name =='deepandes':
-        model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')
+        model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  # vitl14 is the default backbone for deepandes
         teacher_checkpoint = pretrained_weights # path to .pth 
         pretrained_dict = torch.load(teacher_checkpoint, map_location="cpu")
         checkpoint_key = 'teacher'
@@ -86,7 +86,8 @@ def main(args):
             else:
                 new_key = k.replace('backbone.', '')
                 new_state_dict[new_key] = v
-        #change shape of pos_embed, shape depending on vits or vitg, or  vitl
+        # change shape of pos_embed, shape depending on vits or vitg, or  vitl, for deepandes (vitl14) and input of 224x224, 8 bands
+        # there will be 256 patch tokens and 1 class tokens, so 257 tokens in total, each token has 1024 hidden dimensions
         pos_embed = nn.Parameter(torch.zeros(1, 257, 1024))
         model.pos_embed = pos_embed
 
@@ -109,7 +110,7 @@ def main(args):
             nn.Linear(256, 2)
         )
 
-
+    # Evaluate on MoCo-v2 backbone. expand the input channels to 8 bands
     if model_name =='mocov2':
         from torchvision.models import resnet50
         from dinov2.eval.other_baselines import load_moco_backbone
@@ -131,6 +132,7 @@ def main(args):
             nn.Linear(256, 2)
         )
 
+    # Evaluate on MAE backbone. expand the input channels to 8 bands
     if model_name =='mae':
         model = timm.create_model(
             'vit_large_patch16_224.mae',
@@ -144,6 +146,7 @@ def main(args):
             nn.Linear(256, 2)
         )
 
+    # Evaluate on SATMAE backbone. expand the input channels to 8 bands
     if model_name =='satmae':
         from dinov2.eval.other_baselines import mae_backbone_builder, mae_classifier
         satmae_model = mae_backbone_builder()
@@ -152,8 +155,9 @@ def main(args):
         model = satmae_classifier
 
 
+    # Evaluate on a Vit-L14 backbone. expand the input channels to 8 bands, trained from sratch
     if timm_IM:
-        model = timm.create_model(model_name='vit_large_patch16_224', pretrained=False, 
+        model = timm.create_model(model_name='vit_large_patch14_224', pretrained=False, 
                                   in_chans=8, num_classes=2)
 
         model.head = nn.Sequential(
@@ -162,6 +166,7 @@ def main(args):
             nn.Linear(256, 2)
         )
 
+    ####### Optional: freeze/unfreeze the model backbone######
     # for param in model.parameters():
     #     param.requires_grad = True
 
@@ -190,7 +195,7 @@ def main(args):
     val_dataset = LBDataset(root=val_dataset_str, transforms=train_transforms)
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, drop_last=False)
 
-    # freeze optimizer
+
     optimizer = torch.optim.Adam(
         [
             {'params': model.parameters()}
@@ -334,17 +339,18 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train a model with specified parameters.")
     parser.add_argument('--wandb_project', type=str, default="linear_prob_classic", help='Wandb project name')
     parser.add_argument('--wandb_trial', type=str, default="train_scratch_10%_ep10", help='Wandb trial name')
-    parser.add_argument('--train_dataset_str', type=str, default="/workspace/data/junlin_classic/scaled/fold_1_10%/train", help='Training dataset path')
-    parser.add_argument('--val_dataset_str', type=str, default="/workspace/data/junlin_classic/fold_1/val", help='Validation dataset path')
+    parser.add_argument('--train_dataset_str', type=str, default="/path/to/classification/train/dataset/folder", help='Training dataset path')
+    parser.add_argument('--val_dataset_str', type=str, default="/path/to/classification/val/dataset/folder", help='Validation dataset path')
     parser.add_argument('--cuda', type=int, default=0, help='CUDA device index')
-    parser.add_argument('--output_dir', type=str, default="/workspace/geopacha/output_linear_prob_classic/scaled_10%/train_scratch_ep10", help='Output directory')
+    parser.add_argument('--output_dir', type=str, default="/path/to/output_dir", help='Output directory')
     parser.add_argument('--epochs', type=int, default=10, help='Number of epochs')
-    parser.add_argument('--pretrained_weights', type=str, default="/workspace/data/output/unsupervised/from_container/NEH_new/6gpus/eval/training_324999/teacher_checkpoint.pth", help='Pretrained weights path')
-    
-    # if not include in the CLI, they will be default to False. If add --flag in cli, they will be True
-    parser.add_argument('--timm_IM', action='store_true', help='(default is False)')
-    parser.add_argument('--use_wandb', action='store_true', help='(default is False)')
+    parser.add_argument('--pretrained_weights', type=str, default="/path/to/pretraining/output_dir/eval/training_324999/teacher_checkpoint.pth", help='Pretrained weights path')
     parser.add_argument('--model_name', type=str, default='deepandes', help='model name')
+
+    # if not include in the CLI, they will be default to False. If add --flag in cli, they will be True
+    parser.add_argument('--timm_IM', action='store_true', help='(default is False), for evaluation of the Scratch model')
+    parser.add_argument('--use_wandb', action='store_true', help='(default is False)')
+
     args = parser.parse_args()
     
     main(args)
