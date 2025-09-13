@@ -7,4 +7,5 @@ To do:
   - [x] shows where the changes haved been updated in the dinov2_ssl_8bands: vit-model (in_chans=8), customized dataset class
   - [x] ssl pretraining specific readme
 - [ ] Downstream tasks code
+  - [x] classification   
 - [ ] Test the environment and codebase 
