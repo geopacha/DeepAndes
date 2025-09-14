@@ -38,7 +38,6 @@ def main(args):
     output_dir = args.output_dir
     epochs = args.epochs
     pretrained_weights = args.pretrained_weights
-    timm_IM = args.timm_IM
     model_name = args.model_name
 
     # Now you can use these variables in your training code
@@ -52,7 +51,7 @@ def main(args):
     print(f"Output directory: {output_dir}")
     print(f"Epochs: {epochs}")
     print(f"Pretrained weights: {pretrained_weights}")
-    print(f"timm_IM {timm_IM}")
+    print(f"Model name: {model_name}")
 
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, 'models'), exist_ok=True)
@@ -156,7 +155,7 @@ def main(args):
 
 
     # Evaluate on a Vit-L14 backbone. expand the input channels to 8 bands, trained from sratch
-    if timm_IM:
+    if model_name == 'scratch':
         model = timm.create_model(model_name='vit_large_patch14_224', pretrained=False, 
                                   in_chans=8, num_classes=2)
 
@@ -348,7 +347,6 @@ if __name__ == "__main__":
     parser.add_argument('--model_name', type=str, default='deepandes', help='model name')
 
     # if not include in the CLI, they will be default to False. If add --flag in cli, they will be True
-    parser.add_argument('--timm_IM', action='store_true', help='(default is False), for evaluation of the Scratch model') # for evaluation of the Scratch model
     parser.add_argument('--use_wandb', action='store_true', help='(default is False)') # for logging the metrics to wandb
 
     args = parser.parse_args()
