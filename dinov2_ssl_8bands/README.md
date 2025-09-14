@@ -49,7 +49,7 @@ Training logs are saved in both image and JSON formats. An example is provided:
 - [training_metrics (wandb)](../configs/ssl_pretraining/training_metrics_wandb.png)  
 - [training_metrics (json)](../configs/ssl_pretraining/training_metrics.json)
 
-The model checkpoints can be found in `path/to/output_dir/eval/training_[number]/teacher_checkpoint.pth`
+After pretraining, the model checkpoints can be found in `path/to/output_dir/eval/training_[number]/teacher_checkpoint.pth`
 
 ## Key Modifications
 
