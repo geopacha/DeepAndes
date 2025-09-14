@@ -78,7 +78,7 @@ The `--model_name` flag supports the following backbone options:
 - `scratch` — randomly initialized ViT-L (no pretraining)
 
 
-
+<br>
 To fine-tune MAE backbone:
 
 ```
@@ -94,7 +94,7 @@ python ./classification_eval/linear_prob_simple_args.py \
 ```
 
 
-
+<br>
 To fine-tune MoCo-V2 backbone: 
 
 ```
@@ -110,10 +110,10 @@ python ./classification_eval/linear_prob_simple_args.py \
     --pretrained_weights /path/to/moco_v2_200ep_pretrain.pth.tar
 ```
 
-the pretrained_weights can be downloaded from https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar
+the pretrained_weights can be downloaded from offical github [here](https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar).
 
 
-
+<br>
 To fine-tune SatMAE backbone:
 
 ```
@@ -129,7 +129,7 @@ python ./classification_eval/linear_prob_simple_args.py \
 ```
 
 
-
+<br>
 To fine-tune ViT-L/14 backbone with no pretrained weights (Scratch):
 
 ```
@@ -147,7 +147,7 @@ python ./classification_eval/linear_prob_simple_args.py \
 
 
 
-
+<br>
 
 ## Citing Our Work
 
