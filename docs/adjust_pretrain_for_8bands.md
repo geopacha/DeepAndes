@@ -81,3 +81,21 @@ After pretraining, the model checkpoints can be found in `path/to/output_dir/eva
 ### 5. Simple Logging (Weights & Biases)
 - Integrated Weights & Biases (wandb) for experiment tracking
 - Replace `api_key` with your own account key
+
+
+
+## Citing Our Work
+
+
+
+If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
+
+```
+@article{guo2025deepandes,
+  title={DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes},
+  author={Guo, Junlin and Zimmer-Dauphinee, James R and Nieusma, Jordan M and Lu, Siqi and Liu, Quan and Deng, Ruining and Cui, Can and Yue, Jialin and Lin, Yizhe and Yao, Tianyuan and others},
+  journal={arXiv preprint arXiv:2504.20303},
+  year={2025}
+}
+```
+
