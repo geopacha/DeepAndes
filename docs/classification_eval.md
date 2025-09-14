@@ -67,7 +67,7 @@ Replace each placeholder (like `<your_project_name>`) as appropriate.
 
 ------
 
-### Other Model Options
+### Other Baseline Models Comparison
 
 The `--model_name` flag supports the following backbone options:
 
@@ -76,6 +76,75 @@ The `--model_name` flag supports the following backbone options:
 - `mocov2` — Momentum Contrast v2
 - `satmae` — Other Satellite MAE baseline
 - `scratch` — randomly initialized ViT-L (no pretraining)
+
+
+
+To fine-tune MAE backbone:
+
+```
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name mae
+```
+
+
+
+To fine-tune MoCo-V2 backbone: 
+
+```
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name deepandes \
+    --pretrained_weights /path/to/moco_v2_200ep_pretrain.pth.tar
+```
+
+the pretrained_weights can be downloaded from https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar
+
+
+
+To fine-tune SatMAE backbone:
+
+```
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name satmae
+```
+
+
+
+To fine-tune ViT-L/14 backbone with no pretrained weights (Scratch):
+
+```
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name scratch
+```
+
+
 
 
 
@@ -94,4 +163,3 @@ If you find this repository useful, please consider giving a star ⭐ and citati
   year={2025}
 }
 ```
-
