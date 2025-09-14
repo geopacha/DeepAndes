@@ -110,7 +110,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --pretrained_weights /path/to/moco_v2_200ep_pretrain.pth.tar
 ```
 
-the pretrained_weights can be downloaded from offical github [here](https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar).
+the moco pretrained_weight can be downloaded from offical github [here](https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar).
 
 
 <br>
