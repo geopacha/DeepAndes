@@ -11,5 +11,6 @@ To do:
   - [x] ssl pretraining specific readme
 - [ ] Downstream tasks code
   - [x] classification (classification_eval/linear_prob_simple_args.py)  
-  - [ ] classification_eval.md
+  - [x] classification_eval.md
+  - [ ] other codes
 - [ ] Test the environment and codebase 

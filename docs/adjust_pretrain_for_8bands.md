@@ -86,8 +86,6 @@ After pretraining, the model checkpoints can be found in `path/to/output_dir/eva
 
 ## Citing Our Work
 
-
-
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
 ```
