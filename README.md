@@ -13,4 +13,4 @@ To do:
   - [ ] other eval codes (check quality, in-progress)
 - [ ] Test the environment and codebase
 
-- [ ] readme files for different parts (ssl pretraining, classification are current stored in doc/... too)
+Detailed Readme files for different parts (ssl pretraining, classification are current stored in doc/... too)
