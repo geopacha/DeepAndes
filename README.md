@@ -3,13 +3,9 @@ Official pytorch implementation for DeepAndes: A Self-Supervised Vision Foundati
 
 
 
-## Status
-To do:
-- [x] Upload ssl pre-training code (dinov2_ssl_8bands)
+## TO DO
 
 - [ ] Downstream tasks code
-  - [x] classification (classification_eval/linear_prob_simple_args.py)  
-    - [x] docs/classification_eval.md
   - [ ] other eval codes (check quality, in-progress)
 - [ ] Test the environment and codebase
 
