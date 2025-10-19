@@ -10,8 +10,8 @@
 
 - **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
 
-![](assets/figure1.png)
 
+![](assets/figure1.png)
 
 
 ## 📌 Highlights
@@ -38,6 +38,21 @@ This repo provides
 
 
 
+## 📊 Downstream Tasks
+
+
+## 📂 Folder Structure
+```
+deepandes/
+├── configs/             # Config files for pre-training & fine-tuning  
+├── data/                # Dataset preparation scripts  
+├── models/              # Model definitions & checkpoints  
+├── downstream/          # Downstream pipelines (classification, retrieval, segmentation)  
+├── utils/               # Helper functions (augmentation, logging, etc.)  
+├── inference.py         # Simple inference script  
+└── train_downstream.py  # Downstream fine-tuning script 
+```
+
 
 ## Citation
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
@@ -50,6 +65,15 @@ If you find this repository useful, please consider giving a star ⭐ and citati
   year={2025}
 }
 ```
+
+## 🧭 Roadmap
+
+- Updating the code for Yolo-Dinov2 object detection head (In-progress)
+- 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
+- 🔗 Integrate geospatial metadata and language models 
+ 
+
+
 ## 🤝 Acknowledgements
 Supported by the [GeoPACHA Project](https://geopacha.org/) and collaborators at Vanderbilt University, Brown University, and ORNL.
 Special thanks to all contributors from the Andean Archaeology and Remote Sensing communities.
