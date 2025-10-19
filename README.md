@@ -1,4 +1,4 @@
-# DeepAndes  
+# 🌎 DeepAndes  
 *A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes*
 
 **Authors:** Junlin Guo, James R. Zimmer-Dauphinee, Jordan M. Nieusma, Siqi Lu, Quan Liu, Ruining Deng, Can Cui, Jialin Yue, Yizhe Lin, Tianyuan Yao, Juming Xiong, Junchao Zhu, Chongyu Qu, Yuechen Yang, Mitchell Wilkes, Xiao Wang, Parker VanValkenburgh, Steven A. Wernke, Yuankai Huo  
