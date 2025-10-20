@@ -58,7 +58,7 @@ for k, v in pretrained_dict[checkpoint_key].items():
         new_key = k.replace('backbone.', '')
         new_state_dict[new_key] = v
 
-# ViT-L/14 with 224×224 input (8-band) → 257 tokens (256 patches + 1 class), each with 1024 dims
+# ViT-L/14 with 224×224 input (8-band) → 257 tokens (256 patches + 1 cls), 1024 dims
 pos_embed = nn.Parameter(torch.zeros(1, 257, 1024))
 model.pos_embed = pos_embed
 
