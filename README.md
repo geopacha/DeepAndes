@@ -73,15 +73,18 @@ new_patch_embed.proj = nn.Conv2d(
 )
 model.patch_embed = new_patch_embed
 
-# Example: Adding a simple linear classification head
+```
+E.g., Adding a simple linear classifer 
+```
+# add linear classification head
 model.load_state_dict(new_state_dict, strict=True)
 model.head = nn.Sequential(
     nn.Linear(1024, 256),
     nn.ReLU(),
     nn.Linear(256, 2)
 )
+
 ```
-      
 
 ## 📊 Downstream Evaluation
 
