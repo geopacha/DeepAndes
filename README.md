@@ -38,9 +38,50 @@
 
 ## 🚀 Quick Start
 <!-- ## 🎯 About This Repository -->
-This repo provides pretraining and finetuning code for DeepAndes, 
+This repo contains code, pretrained weights (to be released post-publication), and example scripts for using DeepAndes on downstream tasks.
 
 
+### Loading Pre-trained Model
+```
+checkpoint = '/path/to/model/checkpoint.pth'
+model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  
+
+pretrained_dict = torch.load(checkpoint, map_location="cpu")
+checkpoint_key = 'teacher'
+new_state_dict = {}
+for k, v in pretrained_dict[checkpoint_key].items():
+    if 'dino_head' in k:
+        print(f'{k} not used')
+    elif 'ibot_head' in k:
+        print(f'{k} not used')
+    else:
+        new_key = k.replace('backbone.', '')
+        new_state_dict[new_key] = v
+
+# ViT-L/14 with 224×224 input (8-band) → 257 tokens (256 patches + 1 class), each with 1024 dims
+pos_embed = nn.Parameter(torch.zeros(1, 257, 1024))
+model.pos_embed = pos_embed
+
+new_patch_embed = model.patch_embed
+new_patch_embed.proj = nn.Conv2d(
+    in_channels=8,  # Updated for 8 input bands
+    out_channels=new_patch_embed.proj.out_channels,
+    kernel_size=new_patch_embed.proj.kernel_size,
+    stride=new_patch_embed.proj.stride,
+    padding=new_patch_embed.proj.padding,
+    # bias=new_patch_embed.proj.bias,  
+)
+model.patch_embed = new_patch_embed
+
+# Example: Adding a simple linear classification head
+model.load_state_dict(new_state_dict, strict=True)
+model.head = nn.Sequential(
+    nn.Linear(1024, 256),
+    nn.ReLU(),
+    nn.Linear(256, 2)
+)
+```
+      
 
 ## 📊 Downstream Evaluation
 
