@@ -14,7 +14,7 @@
 - **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
 
 
-![](assets/figure1.png)
+![](assets/figure1-reduced.png)
 
 
 ## 📌 Highlights
