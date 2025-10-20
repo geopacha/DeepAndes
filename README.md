@@ -7,12 +7,18 @@
   <img src="https://img.shields.io/badge/Paper-IEEE%20Early%20Access-purple" alt="IEEE Early Access">
 </a>
 
+## 🧭 Roadmap
+This is an ongoing project
+- [ ] Updating the code for Yolo-Dinov2 object detection head (In-progress)
+- [ ] Exploring next-line *[DINOv3](https://github.com/facebookresearch/dinov3/tree/main)* model (In-progress)
+- 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
+- 🔗 Integrate geospatial metadata and language models (next step)
+
 
 ## 📢 Latest Updates
 🔥 🔥 🔥 Last Updated on 2025.10.19 🔥 🔥 🔥
 
 - **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
-
 
 ![](assets/figure1.png)
 
@@ -41,8 +47,8 @@
 This repo contains code, pretrained weights (to be released post-publication), and example scripts for using DeepAndes on downstream tasks.
 
 
-### Loading Pre-trained Model
-```
+### Loading Pre-trained Model (via Pytorch Hub)
+```python
 checkpoint = '/path/to/model/checkpoint.pth'
 model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  
 
@@ -73,8 +79,8 @@ new_patch_embed.proj = nn.Conv2d(
 )
 model.patch_embed = new_patch_embed
 ```
-E.g., Adding a simple linear classifer 
-```
+**E.g., Adding a simple linear classifer head** 
+```python
 # add linear classification head
 model.load_state_dict(new_state_dict, strict=True)
 model.head = nn.Sequential(
@@ -84,7 +90,7 @@ model.head = nn.Sequential(
 )
 ```
 
-## 📊 Downstream Evaluation
+## 📊 Downstream Evaluation Results
 
 ### Scaling Law Behavior
 Scaling laws are observed as the pretraining scale increases from none to 30K, 300K, and 3M images, highlighting DeepAndes’ scalability and performance gains with more data.
@@ -118,14 +124,6 @@ If you find this repository useful, please consider giving a star ⭐ and citati
   year={2025}
 }
 ```
-
-## 🧭 Roadmap
-
-- Updating the code for Yolo-Dinov2 object detection head (In-progress)
-- 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
-- 🔗 Integrate geospatial metadata and language models (next step)
- 
-
 
 ## 🤝 Acknowledgements
 Supported by the [GeoPACHA Project](https://geopacha.org/) and collaborators at Vanderbilt University, Brown University, and ORNL.
