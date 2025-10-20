@@ -22,11 +22,11 @@
 - **Foundation-model scale**: Trained on ~3 million multi-spectral satellite patches covering ~488,640 km² of the Andes.  
 - **Multi-spectral (8-band) input**: Supports 8-band WorldView-2/3 satellite imagery instead of RGB.  
 - **Self-supervised learning (SSL)**: Built upon **DINOv2**, adapted for geospatial feature scale and 8-channel inputs.  
-- **Downstream versatility**: Evaluated on classification, image-to-image retrieval, and segmentation tasks using the full dataset, as well as on classification and segmentation tasks under few-shot (reduced) dataset settings.
+- **Downstream versatility**: Evaluated on classification, retrieval, and segmentation under both full and few-shot (reduced) settings.
 
 ## ⚙️ Architecture & Pre-Training
 
-- **Backbone**: Vision Transformer (ViT-L/14, ~304 M parameters)  
+- **Backbone**: Vision Transformer (ViT-L/14, ~304M parameters)  
 - **Input**: 8-band image patches (256 × 256) sampled across diverse Andean terrains at 0.5 meter/pixel
 - **SSL Framework**:  
   - DINOv2 (Contrastive Learning + Distillation)
@@ -38,11 +38,20 @@
 
 ## 🚀 Quick Start
 <!-- ## 🎯 About This Repository -->
-This repo provides 
+This repo provides pretraining and finetuning code for DeepAndes, 
 
 
 
-## 📊 Downstream Tasks
+## 📊 Downstream Evaluation
+
+### Scaling Law Behavior
+Scaling laws are observed as the pretraining scale increases from none to 30K, 300K, and 3M images, highlighting DeepAndes’ scalability and performance gains with more data.
+
+<div align="center">
+<img src="./assets/scaling_law.png" width="400" alt="Scaling Law Figure"/>
+</div>
+
+### Zero- and Few-shot Evaluation 
 
 We benchmark DeepAndes against representative baselines: a Scratch model, self-supervised backbones (MoCo-V2, MAE), and SatMAE—a domain-specific remote sensing model.
 
@@ -54,9 +63,8 @@ Few-shot results are reported on both the full training set and a highly constra
 
 ![Figure_table_result](./assets/table_results.png)
 
+
 <!-- ## 📂 Folder Structure -->
-
-
 ## Citation
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
