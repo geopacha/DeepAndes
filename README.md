@@ -1,12 +1,15 @@
-# 🌎 DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes  (IEEE JSTARS2025)
+# DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes  (IEEE JSTARS2025)
 > **DeepAndes** is the *first* vision foundation model that applies the **DINOv2** self-supervised learning framework and large-scale pre-training on **multi-spectral satellite imagery** specifically for the **Andes region**.
 
 
 <a href='https://arxiv.org/abs/2504.20303'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
+<a href="https://ieeexplore.ieee.org/document/11196959">
+  <img src="https://img.shields.io/badge/Paper-IEEE%20Early%20Access-purple" alt="IEEE Early Access">
+</a>
 
 
 ## 📢 Latest Updates
-🔥 🔥 Last Updated on 2025.10.19 
+🔥 🔥 🔥 Last Updated on 2025.10.19 🔥 🔥 🔥
 
 - **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
 
@@ -23,10 +26,11 @@
 
 ## ⚙️ Architecture & Pre-Training
 
-- **Backbone**: Vision Transformer (ViT-L/16, ~307 M parameters)  
-- **Input**: 8-band image patches (<256> × <256>) sampled across diverse Andean terrains  
+- **Backbone**: Vision Transformer (ViT-L/14, ~304 M parameters)  
+- **Input**: 8-band image patches (256 × 256) sampled across diverse Andean terrains at 0.5 meter/pixel
 - **SSL Framework**:  
-  - Multi-crop global/local view strategy  
+  - DINOv2 (Contrastive Learning + Distillation)
+  - Multi-crop global/local view strategy 
   - Channel adaptation for 8-band input  
   - Large-scale geospatial sampling  
 - **Dataset**: ~3M patches across 8 land-cover types (~488 k km² coverage)
@@ -40,21 +44,20 @@ This repo provides
 
 ## 📊 Downstream Tasks
 
+We benchmark DeepAndes against representative baselines: a Scratch model, self-supervised backbones (MoCo-V2, MAE), and SatMAE—a domain-specific remote sensing model.
 
-## 📂 Folder Structure
-```
-deepandes/
-├── configs/             # Config files for pre-training & fine-tuning  
-├── data/                # Dataset preparation scripts  
-├── models/              # Model definitions & checkpoints  
-├── downstream/          # Downstream pipelines (classification, retrieval, segmentation)  
-├── utils/               # Helper functions (augmentation, logging, etc.)  
-├── inference.py         # Simple inference script  
-└── train_downstream.py  # Downstream fine-tuning script 
-```
+- **Zero-shot image retrieval**: Top-5 and Top-50 mAP
+- **Few-shot classification**: F1, Recall, and Precision
+- **Few-shot segmentation**: Dice Similarity Coefficient (DSC), with a frozen backbone and a linear segmentation head
+
+Few-shot results are reported on both the full training set and a highly constrained setting  (N_train = 72 for classification, N_train = 10 for segmentation) to simulate data-limited conditions.
+
+![Figure_table_result](./assets/table_results.png)
+
+<!-- ## 📂 Folder Structure -->
 
 
-## 🦖 Citation
+## Citation
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
 ```
