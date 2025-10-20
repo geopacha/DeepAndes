@@ -72,7 +72,6 @@ new_patch_embed.proj = nn.Conv2d(
     # bias=new_patch_embed.proj.bias,  
 )
 model.patch_embed = new_patch_embed
-
 ```
 E.g., Adding a simple linear classifer 
 ```
@@ -83,7 +82,6 @@ model.head = nn.Sequential(
     nn.ReLU(),
     nn.Linear(256, 2)
 )
-
 ```
 
 ## 📊 Downstream Evaluation
@@ -125,7 +123,7 @@ If you find this repository useful, please consider giving a star ⭐ and citati
 
 - Updating the code for Yolo-Dinov2 object detection head (In-progress)
 - 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
-- 🔗 Integrate geospatial metadata and language models 
+- 🔗 Integrate geospatial metadata and language models (next step)
  
 
 
