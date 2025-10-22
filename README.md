@@ -8,15 +8,15 @@
 </a>
 
 ## 🧭 Roadmap
-This is an ongoing project
-- [ ] Updating the code for Yolo-Dinov2 object detection head (In-progress)
-- [ ] Exploring next-line *[DINOv3](https://github.com/facebookresearch/dinov3/tree/main)* model (In-progress)
+This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
+- [ ] Updating the code for YOLO(ultralytics) object detection head (In-progress)
+- [ ] Exploring the next-line *[**DINOv3**](https://github.com/facebookresearch/dinov3/tree/main)* model (In-progress)
 - 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
 - 🔗 Integrate geospatial metadata and language models (next step)
 
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.10.19 🔥 🔥 🔥
+🔥 🔥 🔥 Last Updated on 2025.10.22 🔥 🔥 🔥
 
 - **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
 
@@ -46,9 +46,12 @@ This is an ongoing project
 <!-- ## 🎯 About This Repository -->
 This repo contains code, pretrained weights (to be released post-publication), and example scripts for using DeepAndes on downstream tasks.
 
+Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install PyTorch (the only required dependency for loading the model). Installing with **CUDA support** is strongly recommended.  [xFormers](https://github.com/facebookresearch/xformers) is also installed via *`pip`*
 
-### Loading Pre-trained Model (via Pytorch Hub)
+
+### Load Pre-trained backbone (via Pytorch Hub)
 ```python
+# checkpoint
 checkpoint = '/path/to/model/checkpoint.pth'
 model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  
 
@@ -75,20 +78,23 @@ new_patch_embed.proj = nn.Conv2d(
     kernel_size=new_patch_embed.proj.kernel_size,
     stride=new_patch_embed.proj.stride,
     padding=new_patch_embed.proj.padding,
-    # bias=new_patch_embed.proj.bias,  
 )
 model.patch_embed = new_patch_embed
+model.load_state_dict(new_state_dict, strict=True)
 ```
 **E.g., Adding a simple linear classifer head** 
 ```python
 # add linear classification head
-model.load_state_dict(new_state_dict, strict=True)
 model.head = nn.Sequential(
     nn.Linear(1024, 256),
     nn.ReLU(),
     nn.Linear(256, 2)
 )
 ```
+
+### Launch Pre-training 
+The pre-training code is [`train_8bands.py`](dinov2_ssl_8bands/dinov2/train/train_8bands.py). Please [`dinov2_ssl_8bands/README.md`](dinov2_ssl_8bands/README.md) for installation, dataset setup, and key modifications supporting any number of image bands.
+
 
 ## 📊 Downstream Evaluation Results
 
