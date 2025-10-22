@@ -60,7 +60,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --pretrained_weights /path/to/teacher_checkpoint.pth
 ```
 
->  After pretraining (e.g., [SSL pretraining README](./adjust_pretrain_for_8bands.md)), checkpoints are typically saved under:
+>  After pretraining (e.g., [SSL pretraining README](../dinov2_ssl_8bands/README.md)), checkpoints are typically saved under:
 >  `/path/to/output_dir/eval/training_[number]/teacher_checkpoint.pth`
 
 Replace each placeholder (like `<your_project_name>`) as appropriate.

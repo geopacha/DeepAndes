@@ -18,7 +18,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 ## 📢 Latest Updates
 🔥 🔥 🔥 Last Updated on 2025.10.22 🔥 🔥 🔥
 
-- **[2025.10.02]** Our paper has been accepted for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
+- **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
 ![](assets/figure1.png)
 
@@ -91,12 +91,11 @@ model.head = nn.Sequential(
     nn.Linear(256, 2)
 )
 ```
-
+----
 ### Launch Pre-training 
-The pre-training code is [**train_8bands.py**](dinov2_ssl_8bands/dinov2/train/train_8bands.py). Please refer to [**dinov2_ssl_8bands/README.md**](dinov2_ssl_8bands/README.md) for detailed installation, dataset setup, and key modifications supporting any number of image bands.
+Please refer to [**dinov2_ssl_8bands/README.md**](dinov2_ssl_8bands/README.md) for detailed installation, dataset setup, and key modifications supporting any number of image bands.
 
 Run on Multi-GPUs (without SLURM): 
-
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 \
     /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
@@ -117,15 +116,14 @@ python /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
     --wandb-trial <name_of_the_run> \
     --wandb-project <name_of_the_project>
 ```
-An example training logs is provided here: 
+An example <u>training logs</u> is provided here: 
 
 - [training_metrics (wandb snapshot)](configs/ssl_pretraining/training_metrics_wandb.png)  
 - [training_metrics (json format)](configs/ssl_pretraining/training_metrics.json)
 
+---
 ### Fine-tuning: Classification 
-The script for simple classification fine-tuning is **linear_prob_simple_args.py**. See the [**classification_eval/README.md**](classification_eval/README.md) for setup details and baseline comparisons.
-
-fine-tune (e.g., `deepandes`) using binary classification dataset
+See the [**classification_eval/README.md**](classification_eval/README.md) for setup details and baseline comparisons. E.g., To fine-tune `deepandes` using binary classification dataset. 
 
 ```bash
 python ./classification_eval/linear_prob_simple_args.py \
@@ -139,6 +137,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --model_name deepandes \
     --pretrained_weights /path/to/teacher_checkpoint.pth
 ```
+### Image to Image Retrieval 
 
 
 ## 📊 Downstream Evaluation Results
