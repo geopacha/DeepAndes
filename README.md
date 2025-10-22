@@ -9,10 +9,10 @@
 
 ## 🧭 Roadmap
 This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
-- [ ] Updating the code for YOLO(ultralytics) object detection head (In-progress)
-- [ ] Exploring the next-line *[**DINOv3**](https://github.com/facebookresearch/dinov3/tree/main)* model (In-progress)
-- 🌎 Extend pre-training to Full Andes Regions (100x more data) (In-progress)
-- 🔗 Integrate geospatial metadata and language models (next step)
+- [ ] Updating the code for YOLO(ultralytics) object detection head (**in progress**)
+- [ ] Exploring the next-line *[**DINOv3**](https://github.com/facebookresearch/dinov3/tree/main)* model (**in progress**)
+- 🌎 Extend pre-training to Full Andes Regions (100x more data) (**in progress**)
+- 🔗 Integrate geospatial metadata and language models (**next step**)
 
 
 ## 📢 Latest Updates
@@ -49,7 +49,7 @@ This repo contains code, pretrained weights (to be released post-publication), a
 Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install PyTorch (the only required dependency for loading the model). Installing with **CUDA support** is strongly recommended.  [xFormers](https://github.com/facebookresearch/xformers) is also installed via *`pip`*
 
 
-### Load Pre-trained backbone (via Pytorch Hub)
+### Use Pre-trained backbone (via Pytorch Hub)
 ```python
 # checkpoint
 checkpoint = '/path/to/model/checkpoint.pth'
@@ -93,7 +93,52 @@ model.head = nn.Sequential(
 ```
 
 ### Launch Pre-training 
-The pre-training code is [`train_8bands.py`](dinov2_ssl_8bands/dinov2/train/train_8bands.py). Please [`dinov2_ssl_8bands/README.md`](dinov2_ssl_8bands/README.md) for installation, dataset setup, and key modifications supporting any number of image bands.
+The pre-training code is [**train_8bands.py**](dinov2_ssl_8bands/dinov2/train/train_8bands.py). Please refer to [**dinov2_ssl_8bands/README.md**](dinov2_ssl_8bands/README.md) for detailed installation, dataset setup, and key modifications supporting any number of image bands.
+
+Run on Multi-GPUs (without SLURM): 
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 \
+    /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
+    --output-dir /path/to/output_dir \
+    --config-file /path/to/config_file.yaml \
+    --ssl-data /path/to/dataset/folder \
+    --wandb-trial <name_of_the_run> \
+    --wandb-project <name_of_the_project>
+```
+replace the CUDA_VISIBLE_DEVICES and nproc_per_node with specific multi-gpus settings. (e.g., training on 8 A100-80GB GPUs)
+
+Run on Single GPU (without SLURM):
+```
+python /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
+    --output-dir /path/to/output_dir \
+    --config-file /path/to/config_file.yaml \
+    --ssl-data /path/to/dataset/folder \
+    --wandb-trial <name_of_the_run> \
+    --wandb-project <name_of_the_project>
+```
+An example training logs is provided here: 
+
+- [training_metrics (wandb snapshot)](configs/ssl_pretraining/training_metrics_wandb.png)  
+- [training_metrics (json format)](configs/ssl_pretraining/training_metrics.json)
+
+### Fine-tuning: Classification 
+The script for simple classification fine-tuning is **linear_prob_simple_args.py**. See the [**classification_eval/README.md**](classification_eval/README.md) for setup details and baseline comparisons.
+
+fine-tune (e.g., `deepandes`) using binary classification dataset
+
+```bash
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name deepandes \
+    --pretrained_weights /path/to/teacher_checkpoint.pth
+```
 
 
 ## 📊 Downstream Evaluation Results

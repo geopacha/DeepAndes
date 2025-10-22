@@ -11,7 +11,7 @@ Specifically, it covers:
 - Available backbone options adapted to 8-band satellite imagery, including:
   **DeepAndes**, **MAE**, **MoCo-v2**, **SATMAE**, and **Scratch**
 
-------
+
 
 ## Dataset Format
 
@@ -31,7 +31,7 @@ Each image is saved as a `.npy` file with 8 spectral bands/channels, having a sh
         └── *.npy
 ```
 
-------
+
 
 ## WandB Integration
 
@@ -41,7 +41,7 @@ To enable experiment tracking with Weights & Biases, include the `--use_wandb` f
 wandb.login(key="your_wandb_api_key_paste_here")
 ```
 
-------
+
 
 ## Training CLI
 
