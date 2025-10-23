@@ -47,7 +47,7 @@ pip freeze > requirements.txt
 # Or export full Conda environment
 conda env export > dinov2_env.yaml
 ```
-[requirement.txt](../configs/conda_envs/requirements.txt) and [dinov2_env.yaml](../configs/conda_envs/dinov2_env.yaml) are saved in `path/to/project-folder/configs/conda_envs/`.
+[requirement.txt](../configs/conda_envs/requirements.txt) and [dinov2_env.yaml](../configs/conda_envs/dinov2_env.yaml) are saved.
 
 ## Example Training Run 
 
