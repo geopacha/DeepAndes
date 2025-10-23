@@ -26,7 +26,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 ## 📌 Highlights
 
 - **Foundation-model scale**: Trained on ~3 million multi-spectral satellite patches covering ~488,640 km² of the Andes.  
-- **Multi-spectral (8-band) input**: Supports 8-band WorldView-2/3 satellite imagery instead of RGB.  
+- **Multi-spectral (8-band) input**: Supports 8-band [WorldView-2](https://www.satimagingcorp.com/satellite-sensors/worldview-2/) and [WorldView-3](https://www.satimagingcorp.com/satellite-sensors/worldview-3/) satellite imagery instead of RGB.  
 - **Self-supervised learning (SSL)**: Built upon **DINOv2**, adapted for geospatial feature scale and 8-channel inputs.  
 - **Downstream versatility**: Evaluated on classification, retrieval, and segmentation under both full and few-shot (reduced) settings.
 

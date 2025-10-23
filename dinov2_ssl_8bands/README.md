@@ -3,7 +3,7 @@ The DINOv2 framework was originally designed for **RGB** images (3 bands). Howev
 
 ## Purpose
 
-- Extends Meta's DINOv2 (and potentially DINOv3) to support multispectral imagery pre-training (e.g., 8-band [WorldView-II](https://www.satimagingcorp.com/satellite-sensors/worldview-2/) and [WorldView-III](https://www.satimagingcorp.com/satellite-sensors/worldview-3/) satellite imagery) 
+- Extends Meta's DINOv2 (and potentially DINOv3) to support multispectral imagery pre-training (e.g., 8-band [WorldView-2](https://www.satimagingcorp.com/satellite-sensors/worldview-2/) and [WorldView-3](https://www.satimagingcorp.com/satellite-sensors/worldview-3/) satellite imagery) 
 - Maintain modularity while minimizing changes.
 
 ## Installation 
