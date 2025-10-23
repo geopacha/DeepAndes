@@ -1,15 +1,58 @@
 # Multi-band Imagery Support for DINOv2
-The DINOv2 framework was originally designed for RGB images (3 bands). However, in fields like remote sensing and earth observation, we often need **multispectral** or **hyperspectral** imagery (>3 bands).
+The DINOv2 framework was originally designed for **RGB** images (3 bands). However, in fields like remote sensing and earth observation, we often need **multispectral** or **hyperspectral** imagery (>3 bands).
 
 ## Purpose
 
-- Extends Meta's DINOv2 (and potentially DINOv3) to support multispectral imagery pre-training (e.g., 8-band WorldView satellite imagery) 
+- Extends Meta's DINOv2 (and potentially DINOv3) to support multispectral imagery pre-training (e.g., 8-band [WorldView-II](https://www.satimagingcorp.com/satellite-sensors/worldview-2/) and [WorldView-III](https://www.satimagingcorp.com/satellite-sensors/worldview-3/) satellite imagery) 
 - Maintain modularity while minimizing changes.
+
+## Installation 
+This guide creates a Python 3.9 virtual environment with the necessary dependencies for training DINOv2 with 8-band support and custom augmentations.
+
+1. Create a Conda Environment
+```
+conda create -n dinov2_env python=3.9
+conda activate dinov2_env
+```
+
+2. Install PyTorch 
+```
+pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
+  --index-url https://download.pytorch.org/whl/cu128
+```
+🔁 Replace cu128 with cu118, cu117, etc., depending on your system. The command/instructions can be found from [Pytorch](https://pytorch.org/get-started/locally/).
+
+3. Install Core Libraries
+```
+pip install torchmetrics  # evaluation metrics
+pip install omegaconf     # config parsing
+pip install fvcore iopath # utilities from FAIR
+pip install xformers      # optimized attention layers
+pip install wandb         # experiment tracking
+```
+
+4. Install Albumentations (with Pydantic v2)
+```
+pip install albumentations==1.4
+pip install -U pydantic
+```
+⚠️ Attention: The higher version (>2.0+) of albumentations maybe conflict with pydantic v2. So installed the albumentations==1.4 here.
+
+5. (Optional) Save the Environment
+
+```
+# Save pip-based environment
+pip freeze > requirements.txt
+
+# Or export full Conda environment
+conda env export > dinov2_env.yaml
+```
+[requirement.txt](../configs/conda_envs/requirements.txt) and [dinov2_env.yaml](../configs/conda_envs/dinov2_env.yaml) are saved in `path/to/project-folder/configs/conda_envs/`.
 
 ## Example Training Run 
 
 ### 1. Dataset Preparation
-The dataset is stored as `.npy` files inside a single folder.  Each file contains an image-like array with shape `(H, W, 8)` E.g., (256,256,8)
+The dataset for pre-training is stored as `.npy` files inside a single folder.  Each file contains an image-like array with shape `(H, W, C)` (E.g., H=W=256, C=8 in our case). 
 ```text
 /path/to/dataset/folder/
 ├── *.npy
@@ -17,9 +60,24 @@ The dataset is stored as `.npy` files inside a single folder.  Each file contain
 └── ...
 ```
 ### 2. Training Config
-The SSL configuration file is provided: [SSL_3million.yaml](../configs/ssl_pretraining/SSL_3million.yaml)
+
+An example config file for training on 3 million image patches (prepared as Step 1) is provided in `../configs/ssl_pretraining`: [SSL_3million.yaml](../configs/ssl_pretraining/SSL_3million.yaml). 
 
 ### 3. Training 
+
+Adjust Path and Key: `dinov2_ssl_8bands/dinov2/train/train_8bands.py`
+```python
+import sys
+import os 
+
+# Replace '/path/to/dinov2_ssl_8bands' with your actual path
+sys.path.append('/path/to/dinov2_ssl_8bands')
+
+
+if __name__ == "__main__":
+    args = get_args_parser(add_help=True).parse_args()
+    wandb.login(key="api_key_here") # Replace with your wandb api_key
+```
 
 Run on Multi-GPUs (without SLURM): 
 
@@ -44,14 +102,14 @@ python /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
     --wandb-project <name_of_the_project>
 ```
 ### 4. Example Traning Logs
-Training logs are saved in both image and JSON formats. An example is provided: 
+An example training logs is provided here:: 
 
-- [training_metrics (wandb)](../configs/ssl_pretraining/training_metrics_wandb.png)  
-- [training_metrics (json)](../configs/ssl_pretraining/training_metrics.json)
+- [training_metrics (wandb snapshot)](../configs/ssl_pretraining/training_metrics_wandb.png)  
+- [training_metrics (json format)](../configs/ssl_pretraining/training_metrics.json)
 
-After pretraining, the model checkpoints can be found in `path/to/output_dir/eval/training_[number]/teacher_checkpoint.pth`
+After pre-training, the model checkpoints can be found in `path/to/output_dir/eval/training_[number]/teacher_checkpoint.pth`
 
-## Key Modifications
+## Summary of Key Modifications
 
 ### 1. Dataset Module
 **Location:** [`dinov2_ssl_8bands/dinov2/data/datasets/`](../dinov2_ssl_8bands/dinov2/data/datasets/)
