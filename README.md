@@ -16,8 +16,8 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.10.22 🔥 🔥 🔥
-
+🔥 🔥 🔥 Last Updated on 2025.10.23 🔥 🔥 🔥
+- **[2025.10.23]** Pre-trained ViT-L/14 backbone weight is released ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)). 
 - **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
 ![](assets/figure1.png)
@@ -44,7 +44,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 ## 🚀 Quick Start
 <!-- ## 🎯 About This Repository -->
-This repo contains pre-training code, weights (to be released post-publication), and example scripts for downstream tasks with DeepAndes backbone.
+This repo contains pre-trained weight ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), codes and example scripts for downstream tasks with DeepAndes backbone.
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
@@ -52,7 +52,7 @@ See the instructions to install [Pytorch](https://pytorch.org/get-started/locall
 
 ```python
 # checkpoint
-checkpoint = '/path/to/model/checkpoint.pth'
+checkpoint = '/path/to/model/teacher_checkpoint.pth'
 model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  
 
 pretrained_dict = torch.load(checkpoint, map_location="cpu")
