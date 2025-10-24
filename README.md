@@ -21,7 +21,7 @@
   <a href="#-downstream-evaluation-results">Results</a> | 
   <a href="#citation">Citation</a> |
   <a href="#-acknowledgements">Acknowledgements</a> |
-  <a href="#-contact--contribution">Contact & Contribution</a> 
+  <a href="#-contact--contribution">Contact</a> 
 </p>
 
 
