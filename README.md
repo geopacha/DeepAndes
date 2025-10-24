@@ -22,6 +22,12 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 ![](assets/figure1.png)
 
+## Table of Contents
+[Go to Highlights](#-highlights)
+
+[Go to Acknowledgements](#-acknowledgements)
+
+
 
 ## 📌 Highlights
 
