@@ -1,11 +1,24 @@
 # DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes  (IEEE JSTARS2025)
 > **DeepAndes** is the *first* vision foundation model that applies the **DINOv2** self-supervised learning framework and large-scale pre-training on **multi-spectral satellite imagery** specifically for the **Andes region**.
 
-
+<p align="center">
 <a href='https://arxiv.org/abs/2504.20303'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
 <a href="https://ieeexplore.ieee.org/document/11196959">
   <img src="https://img.shields.io/badge/Paper-IEEE%20Early%20Access-purple" alt="IEEE Early Access">
 </a>
+</p>
+<p align="center">
+  <a href="#-roadmap">Roadmap</a> |
+  <a href="#-latest-updates">Lastest Updates</a> |
+  <a href="#-highlights">Hightlights</a> |
+  <a href="#-architecture">Architecture</a> |
+  <a href="#-quick-start">Quick Start</a> | 
+  <a href="#-downstream-evaluation-results">Downstream Evaluation Results</a> | 
+  <a href="#citation">Citation</a> |
+  <a href="#-acknowledgements">Acknowledgements</a> |
+  <a href="#-contact--contribution">Contact & Contribution</a> 
+</p>
+
 
 ## 🧭 Roadmap
 This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
@@ -29,7 +42,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 - **Self-supervised learning (SSL)**: Built upon **DINOv2**, adapted for geospatial feature scale and 8-channel inputs.  
 - **Downstream versatility**: Evaluated on classification, retrieval, and segmentation under both full and few-shot (reduced) settings.
 
-## ⚙️ Architecture & Pre-Training
+## ⚙️ Architecture
 
 - **Backbone**: Vision Transformer (ViT-L/14, ~304M parameters)  
 - **Input**: 8-band image patches (256 × 256) sampled across diverse Andean terrains at 0.5 meter/pixel
