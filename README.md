@@ -11,7 +11,7 @@
   <a href="#-roadmap">Roadmap</a> |
   <a href="#-latest-updates">Lastest Updates</a> |
   <a href="#-highlights">Hightlights</a> |
-  <a href="#-architecture">Architecture</a> |
+  <a href="#%EF%B8%8F-architecture">Architecture</a> |
   <a href="#-quick-start">Quick Start</a> | 
   <a href="#-downstream-evaluation-results">Results</a> | 
   <a href="#citation">Citation</a> |
