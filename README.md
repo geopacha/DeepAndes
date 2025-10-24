@@ -22,13 +22,6 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 ![](assets/figure1.png)
 
-## Table of Contents
-[Go to Highlights](#-highlights)
-
-[Go to Acknowledgements](#-acknowledgements)
-
-
-
 ## 📌 Highlights
 
 - **Foundation-model scale**: Trained on ~3 million multi-spectral satellite patches covering ~488,640 km² of the Andes.  
@@ -50,7 +43,11 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 ## 🚀 Quick Start
 <!-- ## 🎯 About This Repository -->
-This repo contains pre-trained weight ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), codes and example scripts for downstream tasks with DeepAndes backbone.
+This repo contains pre-trained weight ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), codes and example scripts for downstream tasks with DeepAndes backbone:
+  - [Use Pre-trained backbone (via Pytorch Hub)](#use-pre-trained-backbone-via-pytorch-hub)
+  - [Launch Pre-training](#launch-pre-training)
+  - [Fine-tuning: Classification](#fine-tuning-classification)
+  - [Image to Image Retrieval](#image-to-image-retrieval)
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
