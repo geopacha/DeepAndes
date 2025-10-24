@@ -1,15 +1,10 @@
 # Classification Evaluation
 
-We evaluate the pretrained model backbones on a binary classification task using a lightweight linear classifier composed of two fully connected (FC) layers. This serves as a simple yet effective downstream benchmark to assess the feature quality of the pretrained backbone.
-
-
-
-Specifically, it covers:
+We evaluate the pretrained model backbones on a binary classification task using a lightweight linear classifier composed of two fully connected (FC) layers. This serves as a simple yet effective downstream benchmark to assess the feature quality of the pretrained backbone. Specifically, it covers:
 
 - How the classification dataset is structured and formatted
 - How to launch the training, enable experiment tracking
-- Available backbone options adapted to 8-band satellite imagery, including:
-  **DeepAndes**, **MAE**, **MoCo-v2**, **SATMAE**, and **Scratch**
+- SSL Baseline Models Comparison: **DeepAndes**, **MAE**, **MoCo-v2**, **SATMAE**, and **Scratch**
 
 
 
