@@ -13,7 +13,7 @@
   <a href="#-highlights">Hightlights</a> |
   <a href="#-architecture">Architecture</a> |
   <a href="#-quick-start">Quick Start</a> | 
-  <a href="#-downstream-evaluation-results">Downstream Evaluation Results</a> | 
+  <a href="#-downstream-evaluation-results">Results</a> | 
   <a href="#citation">Citation</a> |
   <a href="#-acknowledgements">Acknowledgements</a> |
   <a href="#-contact--contribution">Contact & Contribution</a> 
