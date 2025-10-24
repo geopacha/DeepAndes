@@ -1,6 +1,11 @@
 # DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes  (IEEE JSTARS2025)
 > **DeepAndes** is the *first* vision foundation model that applies the **DINOv2** self-supervised learning framework and large-scale pre-training on **multi-spectral satellite imagery** specifically for the **Andes region**.
 
+
+<p align="center">
+  <img src="assets/Geo_PACHA_logo.png" width="800">
+</p>
+
 <p align="center">
 <a href='https://arxiv.org/abs/2504.20303'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
 <a href="https://ieeexplore.ieee.org/document/11196959">
