@@ -22,14 +22,16 @@ pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 \
 ```
 🔁 Replace cu128 with cu118, cu117, etc., depending on your system. The command/instructions can be found from [Pytorch](https://pytorch.org/get-started/locally/).
 
-3. Install Core Libraries
+3. Install Core Libraries: evaluation metrics, configuration parser, FAIR utilities, optimized attention layers, and experiment tracking.
+
+```bash
+pip install torchmetrics  
+pip install omegaconf    
+pip install fvcore iopath 
+pip install xformers     
+pip install wandb        
 ```
-pip install torchmetrics  # evaluation metrics
-pip install omegaconf     # config parsing
-pip install fvcore iopath # utilities from FAIR
-pip install xformers      # optimized attention layers
-pip install wandb         # experiment tracking
-```
+
 
 4. Install Albumentations (with Pydantic v2)
 ```

@@ -111,6 +111,17 @@ model.head = nn.Sequential(
     nn.Linear(256, 2)
 )
 ```
+
+#### Torch hub Error (dinotxt)
+
+If the error `ModuleNotFoundError: No module named 'dinov2.hub.dinotxt'` occurs while loading module, simply comment out the following line in the `~/.cache/torch/hub/facebookresearch_dinov2_main/hubconf.py` file:
+
+```python
+# from dinov2.hub.dinotxt import dinov2_vitl14_reg4_dinotxt_tet1280d20h24l
+```
+An example [hubconf.py]('configs/hubconf.py') is provided. 
+This is the config mis-match since we use the simple torch hub loading and adjust the pre-trained wieght. 
+
 ----
 ### Launch Pre-training 
 Please refer to [**dinov2_ssl_8bands/README.md**](dinov2_ssl_8bands/README.md) for detailed installation ([here](dinov2_ssl_8bands/README.md#installation)), dataset setup, and key modifications supporting any number (e.g., this work is 8) of image bands.
@@ -140,6 +151,7 @@ An example <u>training logs</u> is provided here:
 
 - [training_metrics (wandb snapshot)](configs/ssl_pretraining/training_metrics_wandb.png)  
 - [training_metrics (json format)](configs/ssl_pretraining/training_metrics.json)
+
 
 ---
 ### Fine-tuning: Classification 

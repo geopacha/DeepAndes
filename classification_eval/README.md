@@ -71,7 +71,15 @@ python ./classification_eval/linear_prob_simple_args.py \
 ```
 Replace each placeholder (like `<wandb_project_name>`) as appropriate.
 
+### Torch hub Error (dinotxt)
 
+If the error `ModuleNotFoundError: No module named 'dinov2.hub.dinotxt'` occurs while loading module, simply comment out the following line in the `hubconf.py` file:
+
+```python
+# from dinov2.hub.dinotxt import dinov2_vitl14_reg4_dinotxt_tet1280d20h24l
+```
+An example [hubconf.py]('../configs/hubconf.py') is provided. 
+This is the config mis-match since we used the simple torch hub loading and adjust the pre-trained wieght. 
 
 ### Other Baseline Models Comparison
 
@@ -158,8 +166,6 @@ python ./classification_eval/linear_prob_simple_args.py \
 
 ## Citing Our Work
 
-
-
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
 ```
@@ -170,3 +176,10 @@ If you find this repository useful, please consider giving a star ⭐ and citati
   year={2025}
 }
 ```
+<br>
+
+## Contact 
+
+For questions or contributions, open an issue or pull request. We are looking forward to your feedback!
+
+Contact: Junlin Guo (junlinguo1@gmail.com), Yuankai Huo (PI)(yuankai.huo@vanderbilt.edu), Steven Wernke (PI)(s.wernke@Vanderbilt.Edu), and Parker VanValkenburgh (parker_vanvalkenburgh@brown.edu)
