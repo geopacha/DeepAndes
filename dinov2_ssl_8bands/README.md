@@ -7,11 +7,11 @@ The DINOv2 framework was originally designed for **RGB** images (3 bands). Howev
 - Maintain modularity while minimizing changes.
 
 ## Installation 
-This guide creates a Python 3.9 virtual environment with the necessary dependencies for training DINOv2 with 8-band support and custom augmentations.
+This guide creates a Python 3.10 virtual environment with the necessary dependencies for training DINOv2 with 8-band support and custom augmentations.
 
 1. Create a Conda Environment
 ```
-conda create -n dinov2_env python=3.9
+conda create -n dinov2_env python=3.10
 conda activate dinov2_env
 ```
 
@@ -45,7 +45,8 @@ pip install -U pydantic
 pip freeze > requirements.txt
 
 # Or export full Conda environment
-conda env export > dinov2_env.yaml
+conda env export --no-builds > dinov2_env.yaml
+
 ```
 [requirement.txt](../configs/ssl_pretraining/conda_envs/requirements.txt) and [dinov2_env.yaml](../configs/ssl_pretraining/conda_envs/dinov2_env.yaml) are saved.
 
