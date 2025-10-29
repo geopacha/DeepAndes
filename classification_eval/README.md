@@ -39,17 +39,6 @@ Each image is saved as a `.npy` file with 8 spectral bands/channels, having a sh
         └── *.npy
 ```
 
-
-
-## WandB Integration
-
-To enable experiment tracking with Weights & Biases, include the `--use_wandb` flag in the CLI command and initialize the API key in [linear_prob_simple_args.py](../classification_eval/linear_prob_simple_args.py):
-
-```
-wandb.login(key="your_wandb_api_key_paste_here")
-```
-
-
 ## Training CLI
 
 After pre-training (see [SSL README](../dinov2_ssl_8bands/README.md)), checkpoints are saved at: `/path/to/output_dir/eval/`. We provided our pre-trained ViT-L/14 backbone on [Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing).
