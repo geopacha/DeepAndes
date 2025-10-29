@@ -78,7 +78,7 @@ If the error `ModuleNotFoundError: No module named 'dinov2.hub.dinotxt'` occurs 
 ```python
 # from dinov2.hub.dinotxt import dinov2_vitl14_reg4_dinotxt_tet1280d20h24l
 ```
-An example [hubconf.py]('../configs/hubconf.py') is provided. 
+An example [hubconf.py](../configs/hubconf.py) is provided. 
 This is the config mis-match since we used the simple torch hub loading and adjust the pre-trained wieght. 
 
 ### Other Baseline Models Comparison
