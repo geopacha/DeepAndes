@@ -173,7 +173,16 @@ python ./classification_eval/linear_prob_simple_args.py \
 
 We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md). For implementation details and descriptions, see [image_retrieval/README.md](image_retrieval/README.md). 
 
-An example for zero-shot image-to-image retrieval using the DeepAndes pre-trained backbone is provided: [deepandes_feature_extract.ipynb](image_retrieval/deepandes_feature_extract.ipynb). 
+An example for zero-shot image-to-image retrieval using the DeepAndes pre-trained backbone is provided: [deepandes_feature_extract.ipynb](image_retrieval/deepandes_feature_extract.ipynb). Some parameters are defined: 
+```python
+pretrained_weight = '/path/to/teacher_checkpoint.pth'  # Path to pre-trained checkpoint
+device = torch.device("cuda:0")                        # Specify GPU index 
+path_to_all_images = '/path/to/dataset/folder/*.npy'   # Path to all database images
+number_to_retrieve = 10                                # Top-k retrieval by cosine similarity
+
+query_image_path = '/path/to/CLS1-7760-223.npy'        # A example query loci image for retrieval
+```
+In our work, we display the image using channels/bands 4, 2, and 1 as RGB for visualization purposes only. The example below shows a query image (active corrals — dark areas indicate animal use) and the top-10 retrieved images based on cosine similarity.
 
 ![](assets/retrieval.png)
 

@@ -88,7 +88,7 @@ The `--model_name` flag supports the following backbone options:
 - `deepandes` — our ViT-L model from DINOv2
 - `mae` — Masked Autoencoder
 - `mocov2` — Momentum Contrast v2
-- `satmae` — Other Satellite MAE baseline
+- `satmae` — A Satellite MAE baseline
 - `scratch` — randomly initialized ViT-L (no pre-training)
 
 
