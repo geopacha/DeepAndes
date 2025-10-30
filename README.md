@@ -183,9 +183,8 @@ We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, 
 ### Scaling Law Behavior
 Scaling laws are observed as the pretraining scale increases from none to 30K, 300K, and 3M images, highlighting DeepAndes’ scalability and performance gains with more data.
 
-<div align="center">
-<img src="assets/retrieval.png" width="900" alt="Scaling Law Figure"/>
-</div>
+
+![](assets/retrieval.png)
 
 ### Zero- and Few-shot Evaluation 
 
