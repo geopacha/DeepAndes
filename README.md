@@ -33,7 +33,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.10.29 🔥 🔥 🔥
+🔥 🔥 🔥 Last Updated on 2025.10.30 🔥 🔥 🔥
 - **[2025.10.23]** Pre-trained ViT-L/14 backbone weight is released ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), check [quick-start](#use-pre-trained-backbone-via-pytorch-hub)
 - **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
