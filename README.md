@@ -171,6 +171,10 @@ python ./classification_eval/linear_prob_simple_args.py \
 ```
 ### Image to Image Retrieval 
 
+We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md).
+
+
+
 
 ## 📊 Downstream Evaluation Results
 
