@@ -182,7 +182,7 @@ number_to_retrieve = 10                                # Top-k retrieval by cosi
 
 query_image_path = '/path/to/CLS1-7760-223.npy'        # A example query loci image for retrieval
 ```
-In our work, we display the image using channels/bands 4, 2, and 1 as RGB for visualization purposes only. The example below shows a query image (active corrals — dark areas indicate animal use) and the top-10 retrieved images based on cosine similarity.
+In our work, we display the image using channels/bands 4, 2, and 1 as RGB for visualization purposes only. The example below shows a query image (Class 1, **active corrals** — dark areas indicate animal use) and the top-10 retrieved images based on cosine similarity.
 
 ![](assets/retrieval.png)
 
