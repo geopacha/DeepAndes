@@ -171,7 +171,9 @@ python ./classification_eval/linear_prob_simple_args.py \
 ```
 ### Image to Image Retrieval 
 
-We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md).
+We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md). For implementation details and descriptions, see [image_retrieval/README.md](image_retrieval/README.md). 
+
+An example for zero-shot image-to-image retrieval using the DeepAndes pre-trained backbone is provided: [deepandes_feature_extract.ipynb](image_retrieval/deepandes_feature_extract.ipynb). 
 
 ![](assets/retrieval.png)
 
