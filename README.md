@@ -173,7 +173,9 @@ python ./classification_eval/linear_prob_simple_args.py \
 
 We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md).
 
-
+<div align="center">
+<img src="./assets/scaling_law.png" width="500" alt="Scaling Law Figure"/>
+</div>
 
 
 ## 📊 Downstream Evaluation Results
@@ -182,7 +184,7 @@ We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, 
 Scaling laws are observed as the pretraining scale increases from none to 30K, 300K, and 3M images, highlighting DeepAndes’ scalability and performance gains with more data.
 
 <div align="center">
-<img src="./assets/scaling_law.png" width="400" alt="Scaling Law Figure"/>
+<img src="assets/retrieval.png" width="900" alt="Scaling Law Figure"/>
 </div>
 
 ### Zero- and Few-shot Evaluation 
