@@ -205,9 +205,11 @@ We benchmark DeepAndes against representative baselines: a Scratch model, self-s
 - **Few-shot classification**: F1, Recall, and Precision
 - **Few-shot segmentation**: Dice Similarity Coefficient (DSC), with a frozen backbone and a linear segmentation head
 
-Few-shot results are reported on both the full training set and a highly constrained setting  (N_train = 72 for classification, N_train = 10 for segmentation) to simulate data-limited conditions.
+**Notes**: Public SSL backbones for comparison are adapted to 8 bands (by adjusting patch embedding) using the `timm` API, which also supports the DINO series and other SOTA PyTorch-based ViT models. An example of this adjustment is [moco_loader.py](dinov2_ssl_8bands/dinov2/eval/other_baselines/moco_loader.py)
 
 ![Figure_table_result](./assets/table_results.png)
+
+Few-shot results are reported on both the full training set and a highly constrained setting  (N_train = 72 for classification, N_train = 10 for segmentation) to simulate data-limited conditions.
 
 
 <!-- ## 📂 Folder Structure -->
