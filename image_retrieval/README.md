@@ -9,7 +9,8 @@ This approach enables rapid dataset expansion — starting from a small set of l
 
 1. **Install Environment**: Follow the setup instructions in [Installation](#installation-conda)
 2. **Prepare Dataset**: Organize your `.npy` image files as described in [Dataset Preparation](#dataset-preparation)
-3. **Run Notebook**: Open [deepandes_feature_extract.ipynb](deepandes_feature_extract.ipynb) and configure your paths
+3. **Run Notebook**: Open [deepandes_feature_extract.ipynb](deepandes_feature_extract.ipynb) and configure your paths. Similar settings apply for other baseline notebooks.
+4. **Evaluate IIR**: An example ([deepandes_IIR_evaluate.ipynb](deepandes_IIR_evaluate.ipynb)) demonstrates mean average precision (mAP) calculation for Top-K positive image retrieval.
 
 
 
