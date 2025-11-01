@@ -37,7 +37,7 @@ In our paper, we evaluate the mean average precision (mAP) of the IIR task. Part
 
 ## Implementations 
 
-An example for zero-shot image-to-image retrieval using the DeepAndes pre-trained backbone is provided: [deepandes_feature_extract.ipynb](image_retrieval/deepandes_feature_extract.ipynb). Some parameters are defined.
+An example for zero-shot image-to-image retrieval using the DeepAndes pre-trained backbone is provided: [deepandes_feature_extract.ipynb](deepandes_feature_extract.ipynb). Some parameters are defined.
 
 ```python
 pretrained_weight = '/path/to/teacher_checkpoint.pth'  # Path to pre-trained checkpoint
@@ -49,8 +49,19 @@ query_image_path = '/path/to/CLS1-7760-223.npy'        # A example query loci im
 ```
 In our work, we display the image using channels/bands 4, 2, and 1 as RGB for visualization purposes only. The example below shows a query image (Class 1, **active corrals** — dark areas indicate animal use) and the top-10 retrieved images based on cosine similarity.
 
-
 ![](../assets/retrieval.png)
+
+
+### Torch hub Error (dinotxt)
+
+If the error `ModuleNotFoundError: No module named 'dinov2.hub.dinotxt'` occurs while loading module, simply comment out the following line in the `~/.cache/torch/hub/facebookresearch_dinov2_main/hubconf.py` file:
+
+```python
+# from dinov2.hub.dinotxt import dinov2_vitl14_reg4_dinotxt_tet1280d20h24l
+```
+An example [hubconf.py](../configs/hubconf.py) is provided. 
+This is the config mis-match since we use the simple torch hub loading and adjust the pre-trained wieght. 
+
 
 
 ## Other Baseline Models Comparison
