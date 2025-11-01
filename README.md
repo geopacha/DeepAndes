@@ -33,7 +33,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.10.30 🔥 🔥 🔥
+🔥 🔥 🔥 Last Updated on 2025.11.1 🔥 🔥 🔥
 - **[2025.10.23]** Pre-trained ViT-L/14 backbone weight is released ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), check [quick-start](#use-pre-trained-backbone-via-pytorch-hub)
 - **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
@@ -64,7 +64,7 @@ This repo contains pre-trained weight ([Google Drive](https://drive.google.com/d
   - [Use Pre-trained backbone (via Pytorch Hub)](#use-pre-trained-backbone-via-pytorch-hub)
   - [Launch Pre-training](#launch-pre-training)
   - [Fine-tuning: Classification](#fine-tuning-classification)
-  - [Image to Image Retrieval](#image-to-image-retrieval) (updating)
+  - [Image to Image Retrieval](#image-to-image-retrieval)
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
