@@ -95,7 +95,8 @@ We also prototyped other self-supervised learning baselines for image retrieval:
 | **Scratch** | Randomly initialized ViT-L (no pre-training) | [scratch_feature_extract.ipynb](scratch_feature_extract.ipynb) |
 
 
-
+## Evaluate IIR with mean Average Precision (mAP) 
+An example ([deepandes_IIR_evaluate.ipynb](deepandes_IIR_evaluate.ipynb)) demonstrates mean average precision (mAP) calculation for Top-K positive image retrieval. The same script structure and helper functions can be applied to other baseline evaluations.
 <br>
 
 ## Citing Our Work
