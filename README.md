@@ -114,6 +114,22 @@ model.head = nn.Sequential(
     nn.Linear(256, 2)
 )
 ```
+#### Adapts DeepAndes 8-band model for 3-band input (experimental)
+
+- Adapts patch_embedding from 8 channels to 3 channels after loading pre-trained weights.
+
+- Note: Model was designed for 8-band Worldview imagery; 3-band adaptation is experimental.
+
+- We provide a [demo script](deepandes_for_3bands/model_load_adjust.py) in `deepandes_for_3bands`
+
+  ```python
+  # loading pretrained weight
+  model.load_state_dict(new_state_dict, strict=True)
+
+  # 2. adjust patch embedding for new_in_ch = 3 
+  adapt_patch_embed_in_chans(model, new_in_ch=3, mode="mean")
+  model.eval()
+  ```
 
 #### Torch hub Error (dinotxt)
 
