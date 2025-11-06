@@ -118,7 +118,7 @@ model.head = nn.Sequential(
 
 - Adapts patch_embedding from 8 channels to 3 channels after loading pre-trained weights.
 
-- Note: Model was designed for 8-band Worldview imagery; 3-band adaptation is experimental.
+- Note: Model was designed for 8-band Worldview imagery; 3-band adaptation is only <ins>experimental</ins>!
 
 - We provide a [demo script](deepandes_for_3bands/model_load_adjust.py) in `deepandes_for_3bands`
 
