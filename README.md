@@ -60,7 +60,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 ## 🚀 Quick Start
 <!-- ## 🎯 About This Repository -->
-This repo contains pre-trained weight ([Google Drive](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing)), codes and example scripts for downstream tasks with DeepAndes backbone:
+This repo contains [pretrained weight (google drive)](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing), codes and example scripts for downstream tasks with DeepAndes backbone:
   - [Use Pre-trained backbone (via Pytorch Hub)](#use-pre-trained-backbone-via-pytorch-hub)
   - [Launch Pre-training](#launch-pre-training)
   - [Fine-tuning: Classification](#fine-tuning-classification)
@@ -71,6 +71,9 @@ This repo contains pre-trained weight ([Google Drive](https://drive.google.com/d
 See the instructions to install [Pytorch](https://pytorch.org/get-started/locally/) (the only required dependency for loading the model). [xFormers](https://github.com/facebookresearch/xformers) is also installed for mem-efficient attention. An example of Pytorch 2.8.0 with CUDA 12.8 and xformers installation are provided [here](dinov2_ssl_8bands/README.md#installation).
 
 ```python
+import torch
+import torch.nn as nn
+
 # checkpoint
 checkpoint = '/path/to/model/teacher_checkpoint.pth'
 model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14')  
