@@ -63,8 +63,8 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 This repo contains [pretrained weight (google drive)](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing), codes and example scripts for downstream tasks with DeepAndes backbone:
   - [Use Pre-trained backbone (via Pytorch Hub)](#use-pre-trained-backbone-via-pytorch-hub)
   - [Launch Pre-training](#launch-pre-training)
+  - [Zero Shot Image to Image Retrieval](#zero-shot-image-to-image-retrieval)
   - [Fine-tuning: Classification](#fine-tuning-classification)
-  - [Image to Image Retrieval](#image-to-image-retrieval)
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
@@ -157,22 +157,8 @@ An example <u>training logs</u> is provided here:
 
 
 ---
-### Fine-tuning: Classification 
-See the [**classification_eval/README.md**](classification_eval/README.md) for setup details and baseline comparisons. E.g., To fine-tune `deepandes` using binary classification dataset. 
 
-```bash
-python ./classification_eval/linear_prob_simple_args.py \
-    --use_wandb \
-    --wandb_project <wandb_project_name> \
-    --wandb_trial <wandb_run_name> \
-    --train_dataset_str /path/to/train_dataset_dir \
-    --val_dataset_str /path/to/val_dataset_dir \
-    --output_dir /path/to/output_dir \
-    --epochs 10 \
-    --model_name deepandes \
-    --pretrained_weights /path/to/teacher_checkpoint.pth
-```
-### Image to Image Retrieval 
+### Zero Shot Image to Image Retrieval
 
 We use the [FAISS](https://github.com/facebookresearch/faiss) library for fast, simple image-to-image retrieval. To set up the Conda environment, follow the instructions in [faiss_install.md](image_retrieval/faiss_install.md). For implementation details and descriptions, see [image_retrieval/README.md](image_retrieval/README.md). 
 
@@ -188,6 +174,25 @@ query_image_path = '/path/to/CLS1-7760-223.npy'        # A example query loci im
 In our work, we display the image using channels/bands 4, 2, and 1 as RGB for visualization purposes only. The example below shows a query image (Class 1, **active corrals** — dark areas indicate animal use) and the top-10 retrieved images based on cosine similarity.
 
 ![](assets/retrieval.png)
+
+
+
+### Fine-tuning: Classification 
+See the [**classification_eval/README.md**](classification_eval/README.md) for setup details and baseline comparisons. E.g., To fine-tune `deepandes` using binary classification dataset. 
+
+```bash
+python ./classification_eval/linear_prob_simple_args.py \
+    --use_wandb \
+    --wandb_project <wandb_project_name> \
+    --wandb_trial <wandb_run_name> \
+    --train_dataset_str /path/to/train_dataset_dir \
+    --val_dataset_str /path/to/val_dataset_dir \
+    --output_dir /path/to/output_dir \
+    --epochs 10 \
+    --model_name deepandes \
+    --pretrained_weights /path/to/teacher_checkpoint.pth
+```
+
 
 ## 📊 Downstream Evaluation Results
 
