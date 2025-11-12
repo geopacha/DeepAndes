@@ -9,7 +9,7 @@
 <p align="center">
 <a href='https://arxiv.org/abs/2504.20303'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
 <a href="https://ieeexplore.ieee.org/document/11196959">
-  <img src="https://img.shields.io/badge/Paper-IEEE%20Early%20Access-purple" alt="IEEE Early Access">
+  <img src="https://img.shields.io/badge/Paper-IEEE-green" alt="IEEE">
 </a>
 </p>
 <p align="center">
