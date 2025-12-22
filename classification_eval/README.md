@@ -66,6 +66,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
+    --cuda 0 \
     --model_name deepandes \
     --pretrained_weights /path/to/teacher_checkpoint.pth
 ```
@@ -104,6 +105,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
+    --cuda 0 \
     --model_name mae
 ```
 
@@ -120,7 +122,8 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
-    --model_name deepandes \
+    --cuda 0 \
+    --model_name mocov2 \
     --pretrained_weights /path/to/moco_v2_200ep_pretrain.pth.tar
 ```
 
@@ -139,6 +142,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
+    --cuda 0 \
     --model_name satmae
 ```
 
@@ -155,6 +159,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
+    --cuda 0 \
     --model_name scratch
 ```
 <br>
