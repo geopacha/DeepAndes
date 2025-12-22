@@ -205,6 +205,7 @@ python ./classification_eval/linear_prob_simple_args.py \
     --val_dataset_str /path/to/val_dataset_dir \
     --output_dir /path/to/output_dir \
     --epochs 10 \
+    --cuda 0 \
     --model_name deepandes \
     --pretrained_weights /path/to/teacher_checkpoint.pth
 ```
