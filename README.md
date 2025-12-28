@@ -65,6 +65,7 @@ This repo contains [pretrained weight (google drive)](https://drive.google.com/d
   - [Launch Pre-training](#launch-pre-training)
   - [Zero Shot Image to Image Retrieval](#zero-shot-image-to-image-retrieval)
   - [Fine-tuning: Classification](#fine-tuning-classification)
+  - [Fine-tuning: Segmentation](#fine-tuning-segmentation)
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
@@ -209,7 +210,13 @@ python ./classification_eval/linear_prob_simple_args.py \
     --model_name deepandes \
     --pretrained_weights /path/to/teacher_checkpoint.pth
 ```
+### Fine-tuning: Segmentation
+See the [**segmentation_eval/README.md**](./segmentations_eval/README.md) for details. The example script trains semantic segmentation models using pretrained backbones with a simple linear segmentation head. 
 
+E.g., For few-shot **active corral** segmentation task with frozen DeepAndes backbone,
+```bash 
+python ./segmentation_eval/main_binary_experiment.py --config ./configs/segmentation_eval/active_corrals_experiment/corrals_active_FM3M.yaml
+```
 
 ## 📊 Downstream Evaluation Results
 
