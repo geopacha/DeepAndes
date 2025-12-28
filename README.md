@@ -63,9 +63,9 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 This repo contains [pretrained weight (google drive)](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing), codes and example scripts for downstream tasks with DeepAndes backbone:
   - [Use Pre-trained backbone (via Pytorch Hub)](#use-pre-trained-backbone-via-pytorch-hub)
   - [Launch Pre-training](#launch-pre-training)
-  - [Zero Shot Image to Image Retrieval](#zero-shot-image-to-image-retrieval)
-  - [Fine-tuning: Classification](#fine-tuning-classification)
-  - [Fine-tuning: Segmentation](#fine-tuning-segmentation)
+  - [Zero-shot: Image to Image Retrieval](#zero-shot-image-to-image-retrieval)
+  - [Few-shot Fine-tuning: Classification](#fine-tuning-classification)
+  - [Few-shot Fine-tuning: Segmentation](#fine-tuning-segmentation)
 
 
 ### Use Pre-trained backbone (via Pytorch Hub)
