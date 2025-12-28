@@ -33,7 +33,7 @@ This is an ongoing project for developing foundation models for the [GEOPACHA](h
 
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.11.6 🔥 🔥 🔥
+🔥 🔥 🔥 Last Updated on 2025.12.27 🔥 🔥 🔥
 - **[2025.10.23]** 3-million DeepAndes ViT-L/14 backbone [pretrained weight (google drive)](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing) is released, check [quick-start](#use-pre-trained-backbone-via-pytorch-hub)
 - **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
