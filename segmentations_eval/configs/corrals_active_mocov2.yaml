@@ -16,6 +16,6 @@ project: wandb_project_name
 name: wandb_trial_name
 
 # Data Paths
-image_folder: /path/to/images_dir
-mask_folder: /path/to/masks_dir
+image_folder: /path/to/images_dir # /path/to/segmentations_eval/active_corrals_data/images
+mask_folder: /path/to/masks_dir   # /path/to/segmentations_eval/active_corrals_data/masks
 output_dir: /path/to/output_dir
