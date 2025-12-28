@@ -1,0 +1,21 @@
+# Training Configuration
+seed: 42
+learning_rate: 1e-4
+epochs: 100
+batch: 2
+
+# Model Configuration
+model_name: scratch
+pretrained_weights:       # no need to define here 
+train_from_scratch: True  # Training from scratch (no pretrained weights)
+train_backbone: False     # False = frozen backbone, True = finetune backbone
+
+# Weights & Biases Configuration
+wandb: True
+project: wandb_project_name
+name: wandb_trial_name
+
+# Data Paths
+image_folder: /path/to/images_dir
+mask_folder: /path/to/masks_dir
+output_dir: /path/to/output_dir
