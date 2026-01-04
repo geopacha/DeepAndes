@@ -74,6 +74,7 @@ import sys
 import os 
 
 # Replace '/path/to/dinov2_ssl_8bands' with your actual path
+# which is necessary for Python to locate the `dinov2` package during training.
 sys.path.append('/path/to/dinov2_ssl_8bands')
 
 
