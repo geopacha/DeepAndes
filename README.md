@@ -249,12 +249,16 @@ Few-shot results are reported on both the full training set and a highly constra
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
 ```
-@article{guo2025deepandes,
-  title={DeepAndes: A Self-Supervised Vision Foundation Model for Multi-Spectral Remote Sensing Imagery of the Andes},
-  author={Guo, Junlin and Zimmer-Dauphinee, James R and Nieusma, Jordan M and Lu, Siqi and Liu, Quan and Deng, Ruining and Cui, Can and Yue, Jialin and Lin, Yizhe and Yao, Tianyuan and others},
-  journal={arXiv preprint arXiv:2504.20303},
-  year={2025}
-}
+@ARTICLE{11196959,
+  author={Guo, Junlin and Zimmer-Dauphinee, James R. and Nieusma, Jordan M. and Lu, Siqi and Liu, Quan and Deng, Ruining and Cui, Can and Yue, Jialin and Lin, Yizhe and Yao, Tianyuan and Xiong, Juming and Zhu, Junchao and Qu, Chongyu and Yang, Yuechen and Wilkes, Mitchell and Wang, Xiao and VanValkenburgh, Parker and Wernke, Steven A. and Huo, Yuankai},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={DeepAndes: A Self-Supervised Vision Foundation Model for Multispectral Remote Sensing Imagery of the Andes}, 
+  year={2025},
+  volume={18},
+  number={},
+  pages={26983-26999},
+  keywords={Remote sensing;Foundation models;Satellite images;Analytical models;Transformers;Training;Surveys;Frequency modulation;Data models;Geospatial analysis;Andean archaeology;DINOv2;foundation model (FM);multispectral imaging;remote sensing;self-supervised learning},
+  doi={10.1109/JSTARS.2025.3619423}}
 ```
 
 ## 🤝 Acknowledgements
