@@ -267,7 +267,7 @@ Special thanks to all contributors from the Andean Archaeology and Remote Sensin
 
 ### Helpful Links:
 - [Awesome Remote Sensing Foundation Models Github Repository](https://github.com/Jack-bo1220/Awesome-Remote-Sensing-Foundation-Models/tree/main): Contiously updating, we reference several excellent DINO codebases and hyperparameter settings from here.
-- [Meta's DINO series](https://github.com/facebookresearch/dinov2) (DINOv3 codebase builds on top of DINOv2)
+- [Meta's DINO series](https://github.com/facebookresearch/dinov2) (DINOv3 follows same/similar codebase, with same training setup for the first-stage pre-training)
 
 ## 📫 Contact & Contribution
 For questions or contributions, open an issue or pull request. We are looking forward to your feedback!
