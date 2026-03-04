@@ -144,11 +144,23 @@ After pre-training, the model checkpoints can be found in `path/to/output_dir/ev
 - Integrated Weights & Biases (wandb) for experiment tracking
 - Replace `api_key` with your own account key
 
+## How We Verify the Same Implementation of Data Loading
+Both `train.py` (RGB) and `train_8bands.py` (8-band) use **identical data loading strategies and randomness methods**. The only differences are the dataset class and augmentation class.
+
+| Aspect | `train.py` (RGB) | `train_8bands.py` (8-band) |
+|--------|-----------------|---------------------------|
+| **Dataset class** | `ImageNet` (via `make_dataset`) | `NLBDataset` (directly instantiated) |
+| **Augmentation** | `DataAugmentationDINO` (RGB torchvision transforms) | `DataAugmentationDINO_MS` (albumentations for multi-spectral) |
+| **Sampler type** | `SHARDED_INFINITE` | `SHARDED_INFINITE` — identical |
+| **shuffle** | `True` | `True` — identical |
+| **seed** | `seed=start_iter` | `seed=start_iter` — identical |
+| **sampler_advance** | `0` | `0` — identical |
+| **collate_fn** | `collate_data_and_cast` | `collate_data_and_cast` — identical |
+| **drop_last** | `True` | `True` — identical |
+| **target_transform** | `lambda _: ()` (discards labels) | not passed; `NLBDataset.get_target()` always returns `0` |
 
 
 ## Citing Our Work
-
-
 
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖 Thank you:)
 
