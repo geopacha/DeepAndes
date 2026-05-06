@@ -169,8 +169,12 @@ python /path/to/dinov2_ssl_8bands/dinov2/train/train_8bands.py \
 ```
 An example <u>training logs</u> is provided here: 
 
-- [training_metrics (wandb snapshot)](configs/ssl_pretraining/training_metrics_wandb.png)  
 - [training_metrics (json format)](configs/ssl_pretraining/training_metrics.json)
+- [training_metrics (wandb snapshot)](configs/ssl_pretraining/training_metrics_wandb.png)  
+
+<p align="center">
+  <img src="configs/ssl_pretraining/training_metrics_wandb.png" width="800">
+</p>
 
 
 ---
