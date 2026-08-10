@@ -24,13 +24,13 @@
 </p>
 
 
-## 🧭 Roadmap
+## 🧭 To do / In-Progress
 This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
 - Next-line *[**DINOv3-based-8bands**](https://github.com/facebookresearch/dinov3/tree/main)* DeepAndesV2 model (**Trained, Paper In-Progress**)
 - Extend pre-training to Full Andes Regions (100x more data) (**Trained, Paper In-Progress**)
 
 ## 📢 Latest Updates
-🔥 🔥 🔥 Last Updated on 2025.12.27 🔥 🔥 🔥
+🔥 🔥 🔥 Last Updated on 2026.08.10 🔥 🔥 🔥
 - **[2025.10.23]** 3-million DeepAndes ViT-L/14 backbone [pretrained weight (google drive)](https://drive.google.com/drive/folders/1-9XMSWyto_-3Rh7U4ObdjhgETvZkZ9PD?usp=sharing) is released, check [quick-start](#use-pre-trained-backbone-via-pytorch-hub)
 - **[2025.10.02]** Our paper has been **accepted** for publication in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (**IEEE JSTARS 2025**).
 
