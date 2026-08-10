@@ -26,11 +26,8 @@
 
 ## 🧭 Roadmap
 This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
-- [ ] Updating the code for YOLO(ultralytics) object detection head (**in progress**)
-- [ ] Exploring the next-line *[**DINOv3**](https://github.com/facebookresearch/dinov3/tree/main)* model (**in progress**)
-- 🌎 Extend pre-training to Full Andes Regions (100x more data) (**in progress**)
-- 🔗 Integrate geospatial metadata and language models (**next step**)
-
+- Next-line *[**DINOv3-based-8bands**](https://github.com/facebookresearch/dinov3/tree/main)* DeepAndesV2 model (**Trained, Paper In-Progress**)
+- Extend pre-training to Full Andes Regions (100x more data) (**Trained, Paper In-Progress**)
 
 ## 📢 Latest Updates
 🔥 🔥 🔥 Last Updated on 2025.12.27 🔥 🔥 🔥
