@@ -26,7 +26,7 @@
 
 ## 🧭 In-Progress
 This is an ongoing project for developing foundation models for the [GEOPACHA](https://geopacha.org/) web app.
-- Next-line *[**DINOv3-based-8bands**](https://github.com/facebookresearch/dinov3/tree/main)* DeepAndesV2 model (***Trained, Paper In-Progress***)
+- Next-line *[**DINOv3-based-8bands**](https://github.com/facebookresearch/dinov3/tree/main)* ***DeepAndesV2*** model (***Trained, Paper In-Progress***)
 - Extend pre-training scale to Full Andes Regions (100x more data in SSL) (***Model coming soon***)
 
 ## 📢 Latest Updates
