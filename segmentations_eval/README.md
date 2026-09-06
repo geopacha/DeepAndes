@@ -39,6 +39,7 @@ The `model_name` in config YAML file supports the following backbone options:
 - `satmae` — A Satellite MAE baseline
 - `scratch` — randomly initialized ViT-L (no pre-training)
 
+The MoCoV2 pre-trained weight (moco_v2_200ep_pretrain.pth.tar) can be downloaded from offical github [download here](https://dl.fbaipublicfiles.com/moco/moco_checkpoints/moco_v2_200ep/moco_v2_200ep_pretrain.pth.tar).
 
 
 ## Usage
