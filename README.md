@@ -273,4 +273,4 @@ Special thanks to all contributors from the Andean Archaeology and Remote Sensin
 ## 📫 Contact & Contribution
 For questions or contributions, open an issue or pull request. We are looking forward to your feedback!
 
-Contact: Junlin Guo (junlinguo1@gmail.com), Yuankai Huo (PI)(yuankai.huo@vanderbilt.edu), Steven Wernke (PI)(s.wernke@Vanderbilt.Edu), and Parker VanValkenburgh (parker_vanvalkenburgh@brown.edu)
+Contact: Junlin Guo (junlinguo1@gmail.com), James Zimmer-Dauphinee (james.r.zimmer-dauphinee@vanderbilt.edu), Yuankai Huo (PI)(yuankai.huo@vanderbilt.edu), Steven Wernke (PI)(s.wernke@Vanderbilt.Edu), and Parker VanValkenburgh (parker_vanvalkenburgh@brown.edu)
